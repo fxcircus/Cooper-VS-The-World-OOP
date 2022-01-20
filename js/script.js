@@ -6,7 +6,7 @@
 // },false);
 
 const btnAreaEl = document.querySelector('.button-area')
-const mapModal = document.querySelector('#game-map')
+const mapModal = document.querySelector('#game-map-modal')
 const newGameBtnEl = document.querySelector('.new-game-button')
 
 newGameBtnEl.addEventListener('click', (evt) => {
