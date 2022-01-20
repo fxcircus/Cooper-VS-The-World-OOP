@@ -5,11 +5,19 @@
 //     f.style.transform += 'translateX('+(ev.clientX-25)+'px)';
 // },false);
 
-const btnAreaEl = document.querySelector('.button-area')
+const newGameModalEl = document.querySelector('#new-game-modal')
 const mapModal = document.querySelector('#game-map-modal')
+const fightModalEl = document.querySelector('#fight-modal')
+
 const newGameBtnEl = document.querySelector('.new-game-button')
+const attackButtonEl = document.querySelector('#attack-button')
 
 newGameBtnEl.addEventListener('click', (evt) => {
-    btnAreaEl.removeChild(newGameBtnEl)
+    newGameModalEl.removeChild(newGameBtnEl)
     mapModal.classList.add('show')
+})
+
+attackButtonEl.addEventListener('click', (evt) => {
+    mapModal.classList.remove('show')
+    fightModalEl.classList.add('show')
 })
