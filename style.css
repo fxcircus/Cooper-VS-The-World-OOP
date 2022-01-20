@@ -1,15 +1,15 @@
 @keyframes walk-story-1 {
-    0%, 100% {
-        transform: translate(0, 0);
-      }
-      
-      10% {
-        transform: translate(0, 50px);
-      }
-      
-      100% {
-        transform: translate(-400px, 50px);
-      }
+    0% {
+    opacity: 0;
+    transform: translate(0, 0);
+    }
+    30% {
+    opacity: 100;
+    transform: translate(0, 50px);
+    }
+    100% {
+    transform: translate(-400px, 50px);
+    }
 }
 
 .game-map{
