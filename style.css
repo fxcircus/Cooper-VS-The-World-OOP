@@ -1,0 +1,40 @@
+@keyframes walk-story-1 {
+    0%, 100% {
+        transform: translate(0, 0);
+      }
+      
+      10% {
+        transform: translate(0, 50px);
+      }
+      
+      100% {
+        transform: translate(-400px, 50px);
+      }
+}
+
+.game-map{
+    height: 1080px;
+    width: 1920px;
+    border: solid red 2px;
+    background-image:url("/images/cooper_game_map_high.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);;
+    grid-template-rows: repeat(4, 270px);;
+    
+}
+
+.cooper-walking {
+    grid-column: 2;
+    grid-row:3;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    /* background: white; */
+    animation-name: walk-story-1;
+    animation-duration: 6s;
+    animation-fill-mode:forwards;
+
+
+}
