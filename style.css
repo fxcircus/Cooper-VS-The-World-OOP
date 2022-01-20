@@ -6,35 +6,84 @@
     30% {
     opacity: 100;
     transform: translate(0, 50px);
+    src: url("/images/cooper_loose_cropped.gif");
     }
     100% {
     transform: translate(-400px, 50px);
     }
 }
 
-.game-map{
+@keyframes fade-out {
+    0% {
+      opacity:100;
+    }
+    95% {
+        opacity:0;
+      }
+    100% {
+      opacity:0;
+    }
+}
+
+@keyframes fade-in {
+    0% {
+      opacity:0;
+    }
+    99% {
+      opacity:0;
+    }
+    100% {
+      opacity:100;
+    }
+}
+  
+#game-map{
+    display:none;
     height: 1080px;
     width: 1920px;
     border: solid red 2px;
     background-image:url("/images/cooper_game_map_high.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-    display:grid;
     grid-template-columns: repeat(3, 1fr);;
     grid-template-rows: repeat(4, 270px);;
-    
+}
+
+.show{
+    display: grid!important;;
 }
 
 .cooper-walking {
+    position:relative;
     grid-column: 2;
     grid-row:3;
-    display: flex;
+    display: grid;
     justify-content: center;
     align-content: center;
     /* background: white; */
     animation-name: walk-story-1;
-    animation-duration: 6s;
+    animation-duration: 10s;
     animation-fill-mode:forwards;
-
-
 }
+
+.cooper-walking img {
+    position:absolute;
+    left:40%;
+}
+
+.cooper-walking #cooper-above{
+    animation-delay: 2.7s;
+    animation-name: fade-out;
+    animation-duration: 0.05s;
+    animation-fill-mode:forwards;
+}
+
+.cooper-walking #cooper-side{
+    opacity:0;
+    animation-delay: 2.7s;
+    animation-name: fade-in;
+    animation-duration: 0.05s;
+    animation-fill-mode:forwards;
+}
+
+

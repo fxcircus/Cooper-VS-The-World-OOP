@@ -4,3 +4,12 @@
 //     f.style.transform = 'translateY('+(ev.clientY-25)+'px)';
 //     f.style.transform += 'translateX('+(ev.clientX-25)+'px)';
 // },false);
+
+const btnAreaEl = document.querySelector('.button-area')
+const mapModal = document.querySelector('#game-map')
+const newGameBtnEl = document.querySelector('.new-game-button')
+
+newGameBtnEl.addEventListener('click', (evt) => {
+    btnAreaEl.removeChild(newGameBtnEl)
+    mapModal.classList.add('show')
+})
