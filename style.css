@@ -81,10 +81,12 @@
 
 body{
     font-family:'Press Start 2P';
+    height: 1080px;
+    width: 1920px;
 }
 
 #new-game-modal{
-    display: none;
+    display: flex;
     justify-content: center;
     align-content: center;
 }
@@ -183,9 +185,9 @@ body{
     width: 90%;
     z-index: 10;
     /* border: solid blue; */
-    font-size: 70px;
-    padding-left: 40px;
-    padding-top:20px;
+    font-size: 50px;
+    padding-left: 30px;
+    padding-top:40px;
 }
 
 .bubble{
@@ -207,10 +209,13 @@ body{
 
 #fight-modal{
     /* border:solid blue; */
-    display:grid;
+    display:none;
     font-size: 60px;
-    height:1080px;
-    width:1920px;
+    border: solid black 25px;
+    border-radius: 5%;
+    height:900px;
+    width:1400px;
+    padding: 30px 60px;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(3, 360px);
     grid-template-areas: 
