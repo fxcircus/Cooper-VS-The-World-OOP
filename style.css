@@ -106,7 +106,7 @@ button:hover {
 }
 
 #new-game-modal{
-    display: none;
+    display: flex;
     justify-content: center;
     align-content: center;
 }
@@ -229,7 +229,7 @@ button:hover {
 
 #fight-modal{
     /* border:solid blue; */
-    display:grid;
+    display:none;
     font-size: 60px;
     border: solid black 25px;
     border-style: double;
@@ -243,9 +243,9 @@ button:hover {
       "photo1 stats1"
       "stats2 photo2"
       "text text";
-    animation-name: shake;
-    animation-delay: 3s;
-    animation-duration: 0.2s;
+    animation-name: fade-in;
+    /* animation-delay: 3s; */
+    animation-duration: 1s;
     animation-fill-mode:forwards;
   }
   
