@@ -68,14 +68,30 @@
 }
 @keyframes blow-up{
     0% {
-        /* height:0%; */
         transform: scaleX(0.0);
         transform: scaleY(0.5);
     }
     100% {
-        /* height:100%; */
         transform: scaleX(-1);
         transform: scaleY(1);
+    }
+}
+
+@keyframes shake{
+    0% {
+        transform: translate(0, 0);
+    }
+    25% {
+        transform: translate(100px, 0);
+    }
+    50% {
+        transform: translate(0, 0);
+    }
+    75% {
+        transform: translate(-100px, 0);
+    }
+    100% {
+        transform: translate(0, 0);
     }
 }
 
@@ -86,7 +102,7 @@ body{
 }
 
 #new-game-modal{
-    display: flex;
+    display: none;
     justify-content: center;
     align-content: center;
 }
@@ -209,9 +225,10 @@ body{
 
 #fight-modal{
     /* border:solid blue; */
-    display:none;
+    display:grid;
     font-size: 60px;
     border: solid black 25px;
+    border-style: double;
     border-radius: 5%;
     height:900px;
     width:1400px;
@@ -222,9 +239,9 @@ body{
       "photo1 stats1"
       "stats2 photo2"
       "text text";
-    /* animation-name: fade-in; */
-    /* animation-delay: 9s; */
-    animation-duration: 1s;
+    animation-name: shake;
+    animation-delay: 3s;
+    animation-duration: 0.2s;
     animation-fill-mode:forwards;
   }
   
@@ -257,7 +274,6 @@ body{
     /* background: yellow; */
   }
 
-
   .stats-area{
     grid-area:stats2;
     padding: 2%;
@@ -276,6 +292,6 @@ body{
   #text-area{
     grid-area:text;
     border: solid grey 20px;
-    border-radius: 5%;
+    border-radius: 2%;
     background: orange;
   }
