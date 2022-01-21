@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Lobster&family=Poiret+One&family=Press+Start+2P&family=Source+Sans+Pro:wght@200&display=swap');
+
 @keyframes walk-story-1 {
     0% {
     opacity: 0;
@@ -76,6 +78,11 @@
         transform: scaleY(1);
     }
 }
+
+body{
+    font-family:'Press Start 2P';
+}
+
 #new-game-modal{
     display: none;
     justify-content: center;
@@ -201,6 +208,7 @@
 #fight-modal{
     /* border:solid blue; */
     display:grid;
+    font-size: 60px;
     height:1080px;
     width:1920px;
     grid-template-columns: repeat(2, 1fr);
@@ -217,7 +225,7 @@
   
   #enemy-stats{
     grid-area:stats1;
-    background: purple;
+    /* background: purple; */
   }
 
   #enemy-photo{
@@ -243,12 +251,26 @@
     animation-fill-mode:forwards;
     /* background: yellow; */
   }
-  #player-stats{
+
+
+  .stats-area{
     grid-area:stats2;
-    background: red;
+    padding: 2%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 43% 14% 43%;
+    row-gap: 10%;
+    /* background: red; */
   }
-  
+
+  .progress{
+      background: greenyellow;
+      width: 70%;
+  }
+
   #text-area{
     grid-area:text;
+    border: solid grey 20px;
+    border-radius: 5%;
     background: orange;
   }
