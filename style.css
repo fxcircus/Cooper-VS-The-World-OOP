@@ -289,6 +289,16 @@ body{
       width: 70%;
   }
 
+  .action-buttons{
+      /* width: 100%; */
+      display: flex;
+  }
+
+  .action-buttons button {
+      flex:1;
+      height: 50%;
+      margin: 5px;
+  }
   #text-area{
     grid-area:text;
     border: solid grey 20px;
