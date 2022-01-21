@@ -101,6 +101,10 @@ body{
     width: 1920px;
 }
 
+button:hover {
+    transform: scale(1.2);
+}
+
 #new-game-modal{
     display: none;
     justify-content: center;
@@ -295,9 +299,14 @@ body{
   }
 
   .action-buttons button {
-      flex:1;
-      height: 50%;
-      margin: 5px;
+    flex:1;
+    height: 50%;
+    margin: 5px;
+    border-radius: 8px;
+    background-color: white;
+    border: solid black 4px;
+    border-style: solid none;
+    font-family:'Press Start 2P';
   }
   #text-area{
     grid-area:text;
