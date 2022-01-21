@@ -8,7 +8,6 @@
 const newGameModalEl = document.querySelector('#new-game-modal')
 const mapModal = document.querySelector('#game-map-modal')
 const fightModalEl = document.querySelector('#fight-modal')
-
 const newGameBtnEl = document.querySelector('.new-game-button')
 const attackButtonEl = document.querySelector('#attack-button')
 

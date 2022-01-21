@@ -9,13 +9,11 @@
     }
     30% {
     transform: translate(0, 50px);
-    /* src: url("/images/cooper_loose_cropped.gif"); */
     }
     100% {
     transform: translate(-500px, 50px);
     }
 }
-
 @keyframes fade-out {
     0% {
       opacity:100;
@@ -27,19 +25,17 @@
       opacity:0;
     }
 }
-
 @keyframes fade-in {
     0% {
       opacity:0;
     }
-    99% {
+    90% {
       opacity:0;
     }
     100% {
       opacity:100;
     }
 }
-
 @keyframes flicker {
     0% {
       opacity:0;
@@ -54,7 +50,6 @@
       opacity:100;
     }
 }
-
 @keyframes slide-in-right {
     0% {
         opacity: 0;
@@ -69,24 +64,41 @@
         transform: translate(0, 0);
     }
 }
-  
+@keyframes blow-up{
+    0% {
+        /* height:0%; */
+        transform: scaleX(0.0);
+        transform: scaleY(0.5);
+    }
+    100% {
+        /* height:100%; */
+        transform: scaleX(-1);
+        transform: scaleY(1);
+    }
+}
+#new-game-modal{
+    display: none;
+    justify-content: center;
+    align-content: center;
+}
+
 #game-map-modal{
     display:none;
     height: 1080px;
     width: 1920px;
     /* border: solid red 2px; */
-    background-image:url("/images/cooper_game_map_high.jpg");
+    background-image:url("images/cooper_game_map_low.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(4, 270px);
-    /* animation-name: fade-out;
-    animation-duration: 8.8s;
-    animation-fill-mode:forwards; */
+    animation-name: fade-in;
+    animation-duration: 0.1s;
+    animation-fill-mode:forwards;
 }
 
 .show{
-    display: grid!important;;
+    display:grid!important;
 }
 
 .cooper-walking {
@@ -188,28 +200,48 @@
 
 #fight-modal{
     /* border:solid blue; */
-    display:none;
+    display:grid;
     height:1080px;
     width:1920px;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(3, 360px);
     grid-template-areas: 
-      "stats1 photo1"
-      "photo2 stats2"
+      "photo1 stats1"
+      "stats2 photo2"
       "text text";
+    /* animation-name: fade-in; */
+    /* animation-delay: 9s; */
+    animation-duration: 1s;
+    animation-fill-mode:forwards;
   }
   
   #enemy-stats{
     grid-area:stats1;
     background: purple;
   }
+
   #enemy-photo{
     grid-area:photo1;
-    background: green;
+    display: flex;
+    justify-content: center;
+    transition: width 2s linear 1s;
+    animation-name: blow-up;
+    /* animation-delay: 4s; */
+    animation-duration: 1s;
+    animation-fill-mode:forwards;
+    /* background: green; */
   }
+
   #player-photo{
     grid-area:photo2;
-    background: yellow;
+    display: flex;
+    justify-content: center;
+    transition: width 2s linear 1s;
+    animation-name: blow-up;
+    /* animation-delay: 4s; */
+    animation-duration: 1s;
+    animation-fill-mode:forwards;
+    /* background: yellow; */
   }
   #player-stats{
     grid-area:stats2;
