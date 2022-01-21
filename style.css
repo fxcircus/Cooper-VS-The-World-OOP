@@ -225,6 +225,11 @@ button:hover {
     animation-delay: 9s;
     animation-duration: 1s;
     animation-fill-mode:forwards;
+    border-radius: 8px;
+    background-color: white;
+    border: solid black 4px;
+    border-style: solid none;
+    font-family:'Press Start 2P';
 }
 
 #fight-modal{
