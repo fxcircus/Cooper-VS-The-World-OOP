@@ -106,7 +106,7 @@ button:hover {
 }
 
 #new-game-modal{
-    display: flex;
+    display: none;
     justify-content: center;
     align-content: center;
 }
@@ -234,7 +234,7 @@ button:hover {
 
 #fight-modal{
     /* border:solid blue; */
-    display:none;
+    display:grid;
     font-size: 60px;
     border: solid black 25px;
     border-style: double;
@@ -312,6 +312,10 @@ button:hover {
     border: solid black 4px;
     border-style: solid none;
     font-family:'Press Start 2P';
+  }
+
+  #enemy-turn-btn {
+      display: none;
   }
   #text-area{
     grid-area:text;
