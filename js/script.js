@@ -6,7 +6,7 @@ const cooperAttacks = [{name:"LICK", points:7}, {name:"Fish Breath", points:20}]
 const truckAttacks = [{name:"Honk", points:25}, {name:"Dump garbage", points:30}]
 const sprinklerAttacks = [{name:"Splash", points:30}, {name:"Hiss", points:40}]
 const fireworksAttacks = [{name:"Big Boom", points:50}, {name:"Smoke", points:40}]
-const timeOutShort = 2000
+const timeOutShort = 1500
 const timeOutLong = 4000
 
 //////////////////////////////
@@ -27,6 +27,9 @@ const fireworksFighterImg = document.createElement('img')
 const cooperAtkOneEl = document.querySelector('#cooper-attack-one')
 const cooperAtkTwoEl = document.querySelector('#cooper-attack-two')
 const cooperItemsEl = document.querySelector('#cooper-items')
+
+const enemyHpEl = document.querySelector('#enemy-hp')
+const cooperHpEl = document.querySelector('#cooper-hp')
 
 newGameBtnEl.addEventListener('click', (evt) => {
     newGameModalEl.removeChild(newGameBtnEl)
@@ -64,12 +67,20 @@ const attack = (source, target, attack) => {
     printMessage(0, `${source.name} USES ${attack.name}:\n`)
     if (Math.random() < source.accuracy) {
         target.hp -= attack.points
+        setTimeout(() => {
+            target.hpBarEl.style.width = `${target.hp}%`
+        }, timeOutShort);
         printMessage(timeOutShort, `IT DOES ${attack.points} POINTS OF DAMAGE!`)
     } else {
         printMessage(timeOutShort, `MISSED!`)
     }
 }
 
+// Instantiante New Enemy
+const newEnemy = (currentEnemy) => {
+    enemyHpEl.style.width = '100%'
+    currentEnemy.hpBarEl = enemyHpEl
+}
 
 // Item
 
@@ -77,7 +88,7 @@ const attack = (source, target, attack) => {
 
 // Retreat
 
-// Reload fight or Restart Game
+// Reload Fight Or Restart Game
 
 // Next Story (storyProgress)
 
@@ -103,10 +114,11 @@ class Fighter {
 
 // Instantiate classes:
 const cooper = new Fighter ('COOPER', 100, 0.8, cooperFighterImg, cooperAttacks)
-const grabageTruck = new Fighter ('GARBAGE TRUCK', 40, 0.9, trcukFighterImg, truckAttacks, true)
+const grabageTruck = new Fighter ('GARBAGE TRUCK', 100, 0.9, trcukFighterImg, truckAttacks, true)
 const sprinkler = new Fighter ('SPRINKLER', 80, 0.7, sprinklerFighterImg, sprinklerAttacks, true)
 const fireworks = new Fighter ('FIREWORKS', 120, 0.6, fireworksFighterImg, fireworksAttacks, true)
 let currentEnemy = grabageTruck
+newEnemy (currentEnemy)
 //////////////////////////////
 // Fight Runtime
 //////////////////////////////

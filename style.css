@@ -303,12 +303,14 @@ button:hover {
     background: greenyellow;
     width: 100%;
     height: 100%;
+    transition: width 2s linear;
   }
 
   #cooper-hp{
     background: greenyellow;
     width: 100%;
     height: 100%;
+    transition: width 2s linear;
   }
 
   .action-buttons{
