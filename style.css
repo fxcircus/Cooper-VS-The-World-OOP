@@ -69,7 +69,15 @@
 @keyframes blow-up{
     0% {
         transform: scaleX(0.0);
-        transform: scaleY(0.5);
+        transform: scaleY(0.0);
+    }
+    75% {
+        transform: scaleX(0.0);
+        transform: scaleY(0.0);
+    }
+    0% {
+        transform: scaleX(0.0);
+        transform: scaleY(0.0);
     }
     100% {
         transform: scaleX(-1);
@@ -103,6 +111,14 @@
         opacity: 0;
     }
 }
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: black; }
+}  
 body{
     font-family:'Press Start 2P';
     height: 1080px;
@@ -112,7 +128,7 @@ button:hover{
     transform: scale(1.2);
 }
 #new-game-modal{
-    display: none;
+    display: flex;
     justify-content: center;
     align-content: center;
 }
@@ -228,7 +244,7 @@ button:hover{
 }
 #fight-modal{
     /* border:solid blue; */
-    display:grid;
+    display:none;
     font-size: 60px;
     border: solid black 25px;
     border-style: double;
@@ -257,8 +273,7 @@ button:hover{
     justify-content: center;
     transition: width 2s linear 1s;
     animation-name: blow-up;
-    /* animation-delay: 4s; */
-    animation-duration: 1s;
+    animation-duration: 2.5s;
     animation-fill-mode:forwards;
     /* background: green; */
 }
@@ -267,10 +282,9 @@ button:hover{
     display: flex;
     justify-content: center;
     transition: width 2s linear 1s;
-    animation-name: blow-up;
-    /* animation-delay: 4s; */
-    animation-duration: 1s;
-    animation-fill-mode:forwards;
+    /* animation-name: blow-up;
+    animation-duration: 3s;
+    animation-fill-mode:forwards; */
     /* background: yellow; */
 }
 .stats-area{
@@ -312,15 +326,20 @@ button:hover{
     border: solid black 4px;
     border-style: solid none;
     font-family:'Press Start 2P';
+    
 }
 #enemy-turn-btn{
       display: none;
+      animation: blink-caret .55s step-end infinite;
 }
 #text-area{
     grid-area:text;
     border: solid grey 20px;
     border-radius: 2%;
     background: orange;
+    /* animation:  */
+    /* typing 3.5s steps(40, end), */
+   
 }
 .kill{
     animation: kill-animation;

@@ -8,6 +8,7 @@ const sprinklerAttacks = [{name:"SPLASH", points:30}, {name:"HISS", points:40}]
 const fireworksAttacks = [{name:"BIG BOOM", points:50}, {name:"SMOKE", points:40}]
 const timeOutShort = 1500
 const timeOutLong = 3000
+const timeOutLast = 5000
 
 //////////////////////////////
 // DOM
@@ -41,6 +42,7 @@ newGameBtnEl.addEventListener('click', (evt) => {
 battleButtonEl.addEventListener('click', (evt) => {
     mapModal.classList.remove('show')
     fightModalEl.classList.add('show')
+    printMessage(timeOutShort,`A WILD ${currentEnemy.name} APPEARED!`)
 })
 
 cooperAtkOneEl.addEventListener('click', (evt) => {
@@ -60,8 +62,16 @@ enemyButtonsEls.addEventListener('click', (evt) => {
 // Functions
 //////////////////////////////
 
-// Switch buttons during battle
+// Reload Fight, Restart Game, Next Story, Or Open Credits:
+const endFight = (result) => {
+    if (result === 'won') {
 
+    } else if (result === 'lost') {
+
+    }
+}
+
+// Switch Buttons During Battle:
 const switchFightButtons = (player) => {
     if (player) {
         cooperAtkOneEl.style.display ='none'
@@ -70,6 +80,7 @@ const switchFightButtons = (player) => {
         if (currentEnemy.hp <= 0){
             printMessage (timeOutLong, `${currentEnemy.name} FAINTED!`)
             currentEnemy.kill()
+            endFight('won')
         } else {
             setTimeout(() => {
                 enemyButtonsEls.style.display ='grid'
@@ -81,6 +92,7 @@ const switchFightButtons = (player) => {
         if (cooper.hp <= 0) {
             cooper.kill()
             printMessage(timeOutLong, `COOPER FAINTED!`)
+            endFight('lost')
         } else {
             setTimeout(() => {
                 cooperAtkOneEl.style.display ='grid'
@@ -95,7 +107,7 @@ const switchFightButtons = (player) => {
     }
 }
 
-// Timeout Message
+// Print Timed-Out Message To Screen:
 const printMessage = (time, message) => {
     textAreaEl.textContent =''
     const newText = document.createTextNode(message)
@@ -104,10 +116,9 @@ const printMessage = (time, message) => {
     }, time)    
 }
 
-// Attack
+// New Attack:
 const attack = (source, target, attack, isCooper) => {
     console.log(source)
-    // grabageTruck.domImg.style.width='100%'
     printMessage(0, `${source.name} USES ${attack.name}:\n`)
     if (Math.random() < source.accuracy) {
         const points = Math.round((Math.random() + 0.1) * attack.points)
@@ -128,27 +139,24 @@ const attack = (source, target, attack, isCooper) => {
     }
 }
 
-// Instantiante New Enemy
+// Instantiante New Enemy:
 const newEnemy = (currentEnemy) => {
     enemyHpEl.style.width = '100%'
     currentEnemy.hpBarEl = enemyHpEl
 }
 
-// Item
+// Item:
 
-// Retreat
 
-// Reload Fight Or Restart Game
+// Next Story (storyProgress):
 
-// Next Story (storyProgress)
 
-// Exit Window
+// Exit Credits Window:
+
 
 //////////////////////////////
 // Classes
 //////////////////////////////
-
-// Fighter (Name, HP, Accuracy, DOM elemnts)
 class Fighter {
     constructor (name, hp, accuracy, domImg, attacks, isEnemy = false) {
         this.name = name
@@ -166,7 +174,7 @@ class Fighter {
     }
 }
 
-// Instantiate classes:
+// Instantiate Classes:
 const cooper = new Fighter ('COOPER', 100, 0.8, cooperFighterImg, cooperAttacks)
 cooper.hpBarEl = cooperHpEl
 const grabageTruck = new Fighter ('GARBAGE TRUCK', 100, 0.9, trcukFighterImg, truckAttacks, true)
@@ -174,6 +182,7 @@ const sprinkler = new Fighter ('SPRINKLER', 80, 0.7, sprinklerFighterImg, sprink
 const fireworks = new Fighter ('FIREWORKS', 120, 0.6, fireworksFighterImg, fireworksAttacks, true)
 let currentEnemy = grabageTruck
 newEnemy (currentEnemy)
+
 //////////////////////////////
 // Fight Runtime
 //////////////////////////////
@@ -194,3 +203,5 @@ IF player is dead -> Call Reload fight or Restart Game
 ELSE -> Add Attack & Item buttons, Remove "Player Turn Botton"
 
 */
+
+printMessage(timeOutShort,`A WILD ${currentEnemy.name} APPEARED!`)
