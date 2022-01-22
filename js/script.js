@@ -63,7 +63,6 @@ const timeOutShort = 1500
 const timeOutLong = 3000
 const timeOutLast = 5000
 const storiesArr =['part-1', 'part-2', 'part-3']
-
 //////////////////////////////
 // Functions
 //////////////////////////////
@@ -71,7 +70,7 @@ const storiesArr =['part-1', 'part-2', 'part-3']
 // Next Story, Or End Credits:
 const nextStory = () => {
     const currentStoryAnimation = storiesArr[0]
-    // console.log(currentStoryAnimation)
+    console.log(`current animation is ${currentStoryAnimation}`)
     if (storiesArr.length === 3) {
         cooperWalkingEl.classList.add(currentStoryAnimation)
         mapModal.classList.add('show')
@@ -86,16 +85,15 @@ const nextStory = () => {
             cooperWalkingEl.classList.add(currentStoryAnimation)
             cooperWalkingEl.style.gridColumn = 1
             storiesArr.shift()
-        } else if (length === 1) {
+        } else if (storiesArr.length === 1) {
             console.log('im here 3')
             enemyAppearsWarningEl.textContent='FIREWORKS!'
             cooperWalkingEl.style.gridRow = 1
             storiesArr.shift()
         }
         mapModal.classList.add('show')
-        
-        console.log (storiesArr)
     }
+    console.log (storiesArr)
 }
 
 // Reload Fight, Restart Game:

@@ -32,6 +32,22 @@
     transform: translate(500px, -550px);
     }
 }
+@keyframes walk-story-3{
+    0% {
+    opacity: 0;
+    transform: translate(0, 0);
+    }
+    10% {
+    opacity: 100;
+    transform: translate(0, 0);
+    }
+    30% {
+    transform: translate(500px, 550px);
+    }
+    100% {
+    transform: translate(500px, -550px);
+    }
+}
 @keyframes fade-out {
     0% {
       opacity:100;
