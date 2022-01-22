@@ -23,15 +23,15 @@
         </div>
         <div id="bubble-and-text">
             <img class="bubble" src="images/speech_bubble.svg"> 
-            <p class="text">GARBAGE TRUCK!!!</p>
+            <p class="text" id="enemy-appears-warning">GARBAGE TRUCK!!!</p>
         </div>
         <button id="attack-button">ATTACK</button>
     </div>
     <div id="fight-modal">
         <div class="stats-area" id="enemy-stats">
-            <p id="enemy-title">GARBAGE-TRUCK</p>
+            <p id="enemy-title"></p>
             <div class="progress"><div id="enemy-hp"></div></div>
-            <div class="action-buttons">
+            <div class="action-buttons" id ="enemy-buttons">
                 <button class="attack" id="enemy-turn-btn">ENEMY TURN</button>
             </div>
         </div>
@@ -44,7 +44,7 @@
         <div class="stats-area" id="player-stats">
             <p id="player-title">COOPER</p>
             <div class="progress"><div id="cooper-hp"></div></div>
-            <div class="action-buttons">
+            <div class="action-buttons" id="cooper-buttons">
                 <button class="attack" id="cooper-attack-one">LICK</button><button class="attack" id="cooper-attack-two">FISH BREATH</button><button class="attack" id="cooper-items">ITEMS</button>
             </div>
         </div>

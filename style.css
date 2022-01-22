@@ -16,6 +16,22 @@
     transform: translate(-500px, 50px);
     }
 }
+@keyframes walk-story-2{
+    0% {
+    opacity: 0;
+    transform: translate(0, 0);
+    }
+    10% {
+    opacity: 100;
+    transform: translate(0, 0);
+    }
+    30% {
+    transform: translate(0, -550px);
+    }
+    100% {
+    transform: translate(500px, -550px);
+    }
+}
 @keyframes fade-out {
     0% {
       opacity:100;
@@ -128,7 +144,7 @@ button:hover{
     transform: scale(1.2);
 }
 #new-game-modal{
-    display: flex;
+    display: none;
     justify-content: center;
     align-content: center;
 }
@@ -149,6 +165,22 @@ button:hover{
 .show{
     display:grid!important;
 }
+
+.part-1{
+    animation-name: walk-story-1;
+    animation-duration: 8.8s;
+    animation-fill-mode:forwards;
+}
+.part-2{
+    animation-name: walk-story-2;
+    animation-duration: 8.8s;
+    animation-fill-mode:forwards;
+}
+.part-3{
+    animation-name: walk-story-3;
+    animation-duration: 8.8s;
+    animation-fill-mode:forwards;
+}
 .cooper-walking{
     position:relative;
     grid-column: 2;
@@ -157,9 +189,7 @@ button:hover{
     justify-content: center;
     align-content: center;
     /* background: white; */
-    animation-name: walk-story-1;
-    animation-duration: 8.8s;
-    animation-fill-mode:forwards;
+    
 }
 .cooper-walking img{
     position:absolute;

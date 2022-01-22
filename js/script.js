@@ -1,18 +1,12 @@
-//////////////////////////////
-// Global Variables 
-//////////////////////////////
-let storyProgress = 0;
-const cooperAttacks = [{name:"LICK", points:40}, {name:"FISH BREATH", points:60}]
-const truckAttacks = [{name:"HONK", points:25}, {name:"DUMP GARBAGE", points:30}]
-const sprinklerAttacks = [{name:"SPLASH", points:30}, {name:"HISS", points:40}]
-const fireworksAttacks = [{name:"BIG BOOM", points:50}, {name:"SMOKE", points:40}]
-const timeOutShort = 1500
-const timeOutLong = 3000
-const timeOutLast = 5000
 
 //////////////////////////////
 // DOM
 //////////////////////////////
+
+const cooperWalkingEl = document.querySelector('.cooper-walking')
+
+// cooperWalkingEl.style.gridColumn = 1
+
 const newGameBtnEl = document.querySelector('.new-game-button')
 const newGameModalEl = document.querySelector('#new-game-modal')
 const mapModal = document.querySelector('#game-map-modal')
@@ -28,15 +22,18 @@ const enemyHpEl = document.querySelector('#enemy-hp')
 const cooperHpEl = document.querySelector('#cooper-hp')
 const cooperButtonsEls = document.querySelector('#cooper-buttons')
 const enemyButtonsEls = document.querySelector('#enemy-turn-btn')
+const enemyAppearsWarningEl = document.querySelector('#enemy-appears-warning')
+const enemyTitleEl = document.querySelector('#enemy-title')
 
 const reloadBattleButtonEl = document.createElement('button')
 const reloadGameButtonEl = document.createElement('button')
 const sprinklerFighterImg = document.createElement('img')
+sprinklerFighterImg.setAttribute('src', 'images/fireworks.gif')
 const fireworksFighterImg = document.createElement('img')
 
 newGameBtnEl.addEventListener('click', (evt) => {
     newGameModalEl.removeChild(newGameBtnEl)
-    mapModal.classList.add('show')
+    nextStory()
 })
 
 battleButtonEl.addEventListener('click', (evt) => {
@@ -59,13 +56,52 @@ enemyButtonsEls.addEventListener('click', (evt) => {
 })
 
 //////////////////////////////
+// Global Variables 
+//////////////////////////////
+let storyProgress = 0;
+const cooperAttacks = [{name:"LICK", points:30}, {name:"FISH BREATH", points:60}]
+const truckAttacks = [{name:"HONK", points:25}, {name:"DUMP GARBAGE", points:30}]
+const sprinklerAttacks = [{name:"SPLASH", points:30}, {name:"HISS", points:40}]
+const fireworksAttacks = [{name:"BIG BOOM", points:50}, {name:"SMOKE", points:40}]
+const timeOutShort = 1500
+const timeOutLong = 3000
+const timeOutLast = 5000
+const storiesArr =['part-1', 'part-2', 'part-3']
+//////////////////////////////
 // Functions
 //////////////////////////////
 
-// Reload Fight, Restart Game, Next Story, Or Open Credits:
+// Next Story, Or End Credits:
+const nextStory = () => {
+    const currentStoryAnimation = storiesArr[0]
+    // console.log(currentStoryAnimation)
+    if (storiesArr.length === 3) {
+        cooperWalkingEl.classList.add(currentStoryAnimation)
+        mapModal.classList.add('show')
+        storiesArr.shift()
+        console.log(enemyAppearsWarningEl)
+        
+    } else {
+        cooperWalkingEl.classList.remove(currentStoryAnimation)
+        if (storiesArr.length === 2) {
+            enemyAppearsWarningEl.textContent='SPRINKLER!'
+            cooperWalkingEl.classList.add(currentStoryAnimation)
+            cooperWalkingEl.style.gridColumn = 1
+        } else if (length === 1) {
+            enemyAppearsWarningEl.textContent='FIREWORKS!'
+        }
+        mapModal.classList.add('show')
+        storiesArr.shift()
+    }
+}
+
+// Reload Fight, Restart Game:
 const endFight = (result) => {
     if (result === 'won') {
-
+        setTimeout(() => {
+            fightModalEl.classList.remove('show')
+            nextStory()
+        }, timeOutLast);
     } else if (result === 'lost') {
 
     }
@@ -96,11 +132,7 @@ const switchFightButtons = (player) => {
         } else {
             setTimeout(() => {
                 cooperAtkOneEl.style.display ='grid'
-            }, timeOutLong)
-            setTimeout(() => {
                 cooperAtkTwoEl.style.display ='grid'
-            }, timeOutLong)
-            setTimeout(() => {
                 cooperItemsEl.style.display ='grid'
             }, timeOutLong)
         } 
@@ -139,10 +171,17 @@ const attack = (source, target, attack, isCooper) => {
     }
 }
 
-// Instantiante New Enemy:
+// Instantiante New Enemy and fight modal:
 const newEnemy = (currentEnemy) => {
-    enemyHpEl.style.width = '100%'
+    console.log(`new enemy - ${enemiesArr[0].name}`)
     currentEnemy.hpBarEl = enemyHpEl
+    setTimeout(() => {
+        enemyHpEl.style.width = '100%' 
+        enemyTitleEl.textContent=currentEnemy.name
+        cooperAtkOneEl.style.display ='grid'
+        cooperAtkTwoEl.style.display ='grid'
+        cooperItemsEl.style.display ='grid'
+    }, timeOutLast);
 }
 
 // Item:
@@ -171,6 +210,9 @@ class Fighter {
         setTimeout(() => {
             this.domImg.classList.add('kill')
         }, timeOutLong);
+        enemiesArr.shift()
+        currentEnemy = enemiesArr[0]
+        newEnemy (currentEnemy)
     }
 }
 
@@ -180,7 +222,9 @@ cooper.hpBarEl = cooperHpEl
 const grabageTruck = new Fighter ('GARBAGE TRUCK', 100, 0.9, trcukFighterImg, truckAttacks, true)
 const sprinkler = new Fighter ('SPRINKLER', 80, 0.7, sprinklerFighterImg, sprinklerAttacks, true)
 const fireworks = new Fighter ('FIREWORKS', 120, 0.6, fireworksFighterImg, fireworksAttacks, true)
-let currentEnemy = grabageTruck
+// let currentEnemy = grabageTruck
+const enemiesArr = [grabageTruck, sprinkler, fireworks]
+let currentEnemy = enemiesArr[0]
 newEnemy (currentEnemy)
 
 //////////////////////////////
@@ -204,4 +248,12 @@ ELSE -> Add Attack & Item buttons, Remove "Player Turn Botton"
 
 */
 
-printMessage(timeOutShort,`A WILD ${currentEnemy.name} APPEARED!`)
+//////////////////////////////
+// Manual modal tests
+//////////////////////////////
+cooperAttacks[0].points=100000
+// fightModalEl.classList.add('show')
+newGameModalEl.style.display = 'flex'
+
+// part-1 animation-duration: 8.8s;
+
