@@ -21,12 +21,14 @@ const enemyButtonsEls = document.querySelector('#enemy-turn-btn')
 const enemyAppearsWarningEl = document.querySelector('#enemy-appears-warning')
 const enemyTitleEl = document.querySelector('#enemy-title')
 
-const reloadBattleButtonEl = document.createElement('button')
-const reloadGameButtonEl = document.createElement('button')
 const sprinklerFighterImg = document.createElement('img')
 sprinklerFighterImg.setAttribute('src', 'images/sprinkler-cropped.png')
 const fireworksFighterImg = document.createElement('img')
 fireworksFighterImg.setAttribute('src', 'images/fireworks.gif')
+
+const playerLostModal = document.querySelector('#player-lost-modal')
+const restartGameBtnEl = document.querySelector('#restart-game')
+// const reloadGameButtonEl = document.createElement('button')
 
 newGameBtnEl.addEventListener('click', (evt) => {
     newGameModalEl.removeChild(newGameBtnEl)
@@ -52,6 +54,9 @@ enemyButtonsEls.addEventListener('click', (evt) => {
     attack (currentEnemy, cooper, currentEnemy.attacks[Math.round(Math.random())], false)
 })
 
+restartGameBtnEl.addEventListener('click', (evt) => {
+    location.reload()
+})
 //////////////////////////////
 // Global Variables 
 //////////////////////////////
@@ -63,6 +68,7 @@ const timeOutShort = 1500
 const timeOutLong = 3000
 const timeOutLast = 5000
 const storiesArr =['part-1', 'part-2', 'part-3']
+let cooperHpStat = 100
 //////////////////////////////
 // Functions
 //////////////////////////////
@@ -105,12 +111,17 @@ const endFight = (result) => {
             nextStory()
         }, timeOutLast);
     } else if (result === 'lost') {
+        setTimeout(() => {
+            fightModalEl.classList.remove('show')
+            playerLostModal.classList.add('show') 
+        }, timeOutLast);
 
     }
 }
 
 // Switch Buttons During Battle:
 const switchFightButtons = (player) => {
+    console.log(cooper.hp)
     if (player) {
         cooperAtkOneEl.style.display ='none'
         cooperAtkTwoEl.style.display ='none'
@@ -128,6 +139,7 @@ const switchFightButtons = (player) => {
     } else {
         enemyButtonsEls.style.display ='none'
         if (cooper.hp <= 0) {
+            console.log('killing cooper')
             cooper.kill()
             printMessage(timeOutLong, `COOPER FAINTED!`)
             endFight('lost')
@@ -228,7 +240,7 @@ class Fighter {
 }
 
 // Instantiate Classes:
-const cooper = new Fighter ('COOPER', 100, 0.8, cooperFighterImg, cooperAttacks)
+const cooper = new Fighter ('COOPER', cooperHpStat, 0.8, cooperFighterImg, cooperAttacks)
 cooper.hpBarEl = cooperHpEl
 const grabageTruck = new Fighter ('GARBAGE TRUCK', 100, 0.9, trcukFighterImg, truckAttacks, true)
 const sprinkler = new Fighter ('SPRINKLER', 80, 0.7, sprinklerFighterImg, sprinklerAttacks, true)
@@ -262,9 +274,10 @@ ELSE -> Add Attack & Item buttons, Remove "Player Turn Botton"
 //////////////////////////////
 // Manual modal tests
 //////////////////////////////
-cooperAttacks[0].points=100000
+// cooperAttacks[0].points=100000
 // fightModalEl.classList.add('show')
 newGameModalEl.style.display = 'flex'
 
-// part-1 animation-duration: 8.8s;
-
+// change cooper stats
+// cooper.hp = 100
+// let cooperHpStat = 1
