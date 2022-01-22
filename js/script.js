@@ -7,7 +7,7 @@ const truckAttacks = [{name:"Honk", points:25}, {name:"Dump garbage", points:30}
 const sprinklerAttacks = [{name:"Splash", points:30}, {name:"Hiss", points:40}]
 const fireworksAttacks = [{name:"Big Boom", points:50}, {name:"Smoke", points:40}]
 const timeOutShort = 1500
-const timeOutLong = 4000
+const timeOutLong = 3000
 
 //////////////////////////////
 // DOM
@@ -31,6 +31,9 @@ const cooperItemsEl = document.querySelector('#cooper-items')
 const enemyHpEl = document.querySelector('#enemy-hp')
 const cooperHpEl = document.querySelector('#cooper-hp')
 
+const cooperButtonsEls = document.querySelector('#cooper-buttons')
+const enemyButtonsEls = document.querySelector('#enemy-turn-btn')
+
 newGameBtnEl.addEventListener('click', (evt) => {
     newGameModalEl.removeChild(newGameBtnEl)
     mapModal.classList.add('show')
@@ -42,16 +45,45 @@ battleButtonEl.addEventListener('click', (evt) => {
 })
 
 cooperAtkOneEl.addEventListener('click', (evt) => {
-    attack (cooper, currentEnemy, cooperAttacks[0])
+    attack (cooper, currentEnemy, cooperAttacks[0], true)
 })
 
 cooperAtkTwoEl.addEventListener('click', (evt) => {
-    attack (cooper, currentEnemy, cooperAttacks[1])
+    attack (cooper, currentEnemy, cooperAttacks[1], true)
+})
+
+enemyButtonsEls.addEventListener('click', (evt) => {
+    console.log(currentEnemy)
+    attack (currentEnemy, cooper, currentEnemy.attacks[Math.round(Math.random())])
 })
 
 //////////////////////////////
 // Functions
 //////////////////////////////
+
+// Switch buttons during battle
+
+const switchFightButtons = (player) => {
+    if (player) {
+        cooperAtkOneEl.style.display ='none'
+        cooperAtkTwoEl.style.display ='none'
+        cooperItemsEl.style.display ='none'
+        setTimeout(() => {
+            enemyButtonsEls.style.display ='grid'
+        }, timeOutLong)
+    } else {
+        enemyButtonsEls.style.display ='none'
+        setTimeout(() => {
+            cooperAtkOneEl.style.display ='grid'
+        }, timeOutLong)
+        setTimeout(() => {
+            cooperAtkTwoEl.style.display ='grid'
+        }, timeOutLong)
+        setTimeout(() => {
+            cooperItemsEl.style.display ='grid'
+        }, timeOutLong)
+    }
+}
 
 // Timeout Message
 const printMessage = (time, message) => {
@@ -59,11 +91,12 @@ const printMessage = (time, message) => {
     const newText = document.createTextNode(message)
     setTimeout(() => {
         textAreaEl.appendChild(newText)
-    }, time);
+    }, time)    
 }
 
 // Attack
-const attack = (source, target, attack) => {
+const attack = (source, target, attack, isCooper) => {
+    console.log(source)
     printMessage(0, `${source.name} USES ${attack.name}:\n`)
     if (Math.random() < source.accuracy) {
         target.hp -= attack.points
@@ -73,6 +106,12 @@ const attack = (source, target, attack) => {
         printMessage(timeOutShort, `IT DOES ${attack.points} POINTS OF DAMAGE!`)
     } else {
         printMessage(timeOutShort, `MISSED!`)
+    }
+    
+    if (isCooper) {
+        switchFightButtons(true)
+    } else {
+        switchFightButtons(false)
     }
 }
 
@@ -104,7 +143,8 @@ class Fighter {
         this.name = name
         this.hp = hp
         this.accuracy = accuracy
-        this.domPicture = domImg
+        this.domImg = domImg
+        this.attacks = attacks
         this.isEnemy = isEnemy
     }
     kill = () => {
@@ -114,6 +154,7 @@ class Fighter {
 
 // Instantiate classes:
 const cooper = new Fighter ('COOPER', 100, 0.8, cooperFighterImg, cooperAttacks)
+cooper.hpBarEl = cooperHpEl
 const grabageTruck = new Fighter ('GARBAGE TRUCK', 100, 0.9, trcukFighterImg, truckAttacks, true)
 const sprinkler = new Fighter ('SPRINKLER', 80, 0.7, sprinklerFighterImg, sprinklerAttacks, true)
 const fireworks = new Fighter ('FIREWORKS', 120, 0.6, fireworksFighterImg, fireworksAttacks, true)
