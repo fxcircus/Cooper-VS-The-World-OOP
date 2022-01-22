@@ -76,7 +76,6 @@
         transform: scaleY(1);
     }
 }
-
 @keyframes shake{
     0% {
         transform: translate(0, 0);
@@ -94,7 +93,6 @@
         transform: translate(0, 0);
     }
 }
-
 @keyframes kill-animation{
     0% {
         transform: translate(0, 0);
@@ -105,23 +103,19 @@
         opacity: 0;
     }
 }
-
 body{
     font-family:'Press Start 2P';
     height: 1080px;
     width: 1920px;
 }
-
-button:hover {
+button:hover{
     transform: scale(1.2);
 }
-
 #new-game-modal{
     display: none;
     justify-content: center;
     align-content: center;
 }
-
 #game-map-modal{
     display:none;
     height: 1080px;
@@ -136,12 +130,10 @@ button:hover {
     animation-duration: 0.1s;
     animation-fill-mode:forwards;
 }
-
 .show{
     display:grid!important;
 }
-
-.cooper-walking {
+.cooper-walking{
     position:relative;
     grid-column: 2;
     grid-row:3;
@@ -153,12 +145,10 @@ button:hover {
     animation-duration: 8.8s;
     animation-fill-mode:forwards;
 }
-
-.cooper-walking img {
+.cooper-walking img{
     position:absolute;
     left:90%;
 }
-
 .cooper-walking #cooper-above{
     animation-name: fade-out;
     height: 92%;
@@ -166,7 +156,6 @@ button:hover {
     animation-duration: 0.05s;
     animation-fill-mode:forwards;
 }
-
 .cooper-walking #cooper-side{
     opacity:0;
     animation-name: fade-in;
@@ -174,7 +163,6 @@ button:hover {
     animation-duration: 0.05s;
     animation-fill-mode:forwards;
 }
-
 .cooper-walking #cooper-side-red{
     opacity:0;
     animation-name: flicker;
@@ -182,7 +170,6 @@ button:hover {
     animation-duration: 2s;
     animation-fill-mode:forwards;
 }
-
 #cooper-talking{
     opacity: 0;
     grid-column: 4 / 5;
@@ -209,7 +196,6 @@ button:hover {
     animation-duration: 1s;
     animation-fill-mode:forwards;
 }
-
 .text{
     position:absolute;
     height: 90%;
@@ -220,14 +206,12 @@ button:hover {
     padding-left: 30px;
     padding-top:40px;
 }
-
 .bubble{
     opacity: 1;
     position:absolute;
     top:0;
     z-index: 2;
 }
-
 #attack-button{
     opacity: 0;
     grid-column: 3;
@@ -242,7 +226,6 @@ button:hover {
     border-style: solid none;
     font-family:'Press Start 2P';
 }
-
 #fight-modal{
     /* border:solid blue; */
     display:grid;
@@ -263,14 +246,12 @@ button:hover {
     /* animation-delay: 3s; */
     animation-duration: 1s;
     animation-fill-mode:forwards;
-  }
-  
-  #enemy-stats{
+}
+#enemy-stats{
     grid-area:stats1;
     /* background: purple; */
-  }
-
-  #enemy-photo{
+}
+#enemy-photo{
     grid-area:photo1;
     display: flex;
     justify-content: center;
@@ -280,9 +261,8 @@ button:hover {
     animation-duration: 1s;
     animation-fill-mode:forwards;
     /* background: green; */
-  }
-
-  #player-photo{
+}
+#player-photo{
     grid-area:photo2;
     display: flex;
     justify-content: center;
@@ -292,9 +272,8 @@ button:hover {
     animation-duration: 1s;
     animation-fill-mode:forwards;
     /* background: yellow; */
-  }
-
-  .stats-area{
+}
+.stats-area{
     grid-area:stats2;
     padding: 2%;
     display: grid;
@@ -302,34 +281,29 @@ button:hover {
     grid-template-rows: 43% 14% 43%;
     row-gap: 10%;
     /* background: red; */
-  }
-
-  .progress{
+}
+.progress{
       background: red;
       width: 70%;
       border: solid blue;
-  }
-  
-  #enemy-hp{
+}
+#enemy-hp{
     background: greenyellow;
     width: 100%;
     height: 100%;
     transition: width 0.5s linear;
-  }
-
-  #cooper-hp{
+}
+#cooper-hp{
     background: greenyellow;
     width: 100%;
     height: 100%;
     transition: width 0.5s linear;
-  }
-
-  .action-buttons{
+}
+.action-buttons{
       /* width: 100%; */
       display: flex;
-  }
-
-  .action-buttons button {
+}
+.action-buttons button{
     flex:1;
     height: 50%;
     margin: 5px;
@@ -338,23 +312,18 @@ button:hover {
     border: solid black 4px;
     border-style: solid none;
     font-family:'Press Start 2P';
-  }
-
-  #enemy-turn-btn {
+}
+#enemy-turn-btn{
       display: none;
-  }
-  #text-area{
+}
+#text-area{
     grid-area:text;
     border: solid grey 20px;
     border-radius: 2%;
     background: orange;
-  }
-  .kill{
+}
+.kill{
     animation: kill-animation;
     animation-duration: 1s;
     animation-fill-mode:forwards; 
-  }
-  /* #garbage-truck{
-    
-    transition: width 5.5s linear;
-  } */
+}

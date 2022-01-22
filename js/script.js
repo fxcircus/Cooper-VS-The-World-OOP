@@ -12,30 +12,26 @@ const timeOutLong = 3000
 //////////////////////////////
 // DOM
 //////////////////////////////
+const newGameBtnEl = document.querySelector('.new-game-button')
 const newGameModalEl = document.querySelector('#new-game-modal')
 const mapModal = document.querySelector('#game-map-modal')
 const fightModalEl = document.querySelector('#fight-modal')
-const newGameBtnEl = document.querySelector('.new-game-button')
 const battleButtonEl = document.querySelector('#attack-button')
 const textAreaEl = document.querySelector('#text-area')
-
 const cooperFighterImg = document.querySelector('#cooper-back-image')
 const trcukFighterImg = document.querySelector('#garbage-truck')
-const sprinklerFighterImg = document.createElement('img')
-const fireworksFighterImg = document.createElement('img')
-
 const cooperAtkOneEl = document.querySelector('#cooper-attack-one')
 const cooperAtkTwoEl = document.querySelector('#cooper-attack-two')
 const cooperItemsEl = document.querySelector('#cooper-items')
-
 const enemyHpEl = document.querySelector('#enemy-hp')
 const cooperHpEl = document.querySelector('#cooper-hp')
-
 const cooperButtonsEls = document.querySelector('#cooper-buttons')
 const enemyButtonsEls = document.querySelector('#enemy-turn-btn')
 
 const reloadBattleButtonEl = document.createElement('button')
 const reloadGameButtonEl = document.createElement('button')
+const sprinklerFighterImg = document.createElement('img')
+const fireworksFighterImg = document.createElement('img')
 
 newGameBtnEl.addEventListener('click', (evt) => {
     newGameModalEl.removeChild(newGameBtnEl)
@@ -57,7 +53,7 @@ cooperAtkTwoEl.addEventListener('click', (evt) => {
 
 enemyButtonsEls.addEventListener('click', (evt) => {
     console.log(currentEnemy)
-    attack (currentEnemy, cooper, currentEnemy.attacks[Math.round(Math.random())])
+    attack (currentEnemy, cooper, currentEnemy.attacks[Math.round(Math.random())], false)
 })
 
 //////////////////////////////
@@ -82,7 +78,7 @@ const switchFightButtons = (player) => {
         
     } else {
         enemyButtonsEls.style.display ='none'
-        if (player.hp <= 0) {
+        if (cooper.hp <= 0) {
             cooper.kill()
             printMessage(timeOutLong, `COOPER FAINTED!`)
         } else {
