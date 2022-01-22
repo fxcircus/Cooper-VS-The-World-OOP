@@ -88,6 +88,7 @@ const nextStory = () => {
         } else if (storiesArr.length === 1) {
             console.log('im here 3')
             enemyAppearsWarningEl.textContent='FIREWORKS!'
+            cooperWalkingEl.classList.add(currentStoryAnimation)
             cooperWalkingEl.style.gridRow = 1
             storiesArr.shift()
         }
