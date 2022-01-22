@@ -2,10 +2,10 @@
 // Global Variables 
 //////////////////////////////
 let storyProgress = 0;
-const cooperAttacks = [{name:"LICK", points:7}, {name:"Fish Breath", points:20}]
-const truckAttacks = [{name:"Honk", points:25}, {name:"Dump garbage", points:30}]
-const sprinklerAttacks = [{name:"Splash", points:30}, {name:"Hiss", points:40}]
-const fireworksAttacks = [{name:"Big Boom", points:50}, {name:"Smoke", points:40}]
+const cooperAttacks = [{name:"LICK", points:40}, {name:"FISH BREATH", points:60}]
+const truckAttacks = [{name:"HONK", points:25}, {name:"DUMP GARBAGE", points:30}]
+const sprinklerAttacks = [{name:"SPLASH", points:30}, {name:"HISS", points:40}]
+const fireworksAttacks = [{name:"BIG BOOM", points:50}, {name:"SMOKE", points:40}]
 const timeOutShort = 1500
 const timeOutLong = 3000
 
@@ -33,6 +33,9 @@ const cooperHpEl = document.querySelector('#cooper-hp')
 
 const cooperButtonsEls = document.querySelector('#cooper-buttons')
 const enemyButtonsEls = document.querySelector('#enemy-turn-btn')
+
+const reloadBattleButtonEl = document.createElement('button')
+const reloadGameButtonEl = document.createElement('button')
 
 newGameBtnEl.addEventListener('click', (evt) => {
     newGameModalEl.removeChild(newGameBtnEl)
@@ -68,20 +71,31 @@ const switchFightButtons = (player) => {
         cooperAtkOneEl.style.display ='none'
         cooperAtkTwoEl.style.display ='none'
         cooperItemsEl.style.display ='none'
-        setTimeout(() => {
-            enemyButtonsEls.style.display ='grid'
-        }, timeOutLong)
+        if (currentEnemy.hp <= 0){
+            printMessage (timeOutLong, `${currentEnemy.name} FAINTED!`)
+            currentEnemy.kill()
+        } else {
+            setTimeout(() => {
+                enemyButtonsEls.style.display ='grid'
+            }, timeOutLong)
+        }
+        
     } else {
         enemyButtonsEls.style.display ='none'
-        setTimeout(() => {
-            cooperAtkOneEl.style.display ='grid'
-        }, timeOutLong)
-        setTimeout(() => {
-            cooperAtkTwoEl.style.display ='grid'
-        }, timeOutLong)
-        setTimeout(() => {
-            cooperItemsEl.style.display ='grid'
-        }, timeOutLong)
+        if (player.hp <= 0) {
+            cooper.kill()
+            printMessage(timeOutLong, `COOPER FAINTED!`)
+        } else {
+            setTimeout(() => {
+                cooperAtkOneEl.style.display ='grid'
+            }, timeOutLong)
+            setTimeout(() => {
+                cooperAtkTwoEl.style.display ='grid'
+            }, timeOutLong)
+            setTimeout(() => {
+                cooperItemsEl.style.display ='grid'
+            }, timeOutLong)
+        } 
     }
 }
 
@@ -97,13 +111,16 @@ const printMessage = (time, message) => {
 // Attack
 const attack = (source, target, attack, isCooper) => {
     console.log(source)
+    // grabageTruck.domImg.style.width='100%'
     printMessage(0, `${source.name} USES ${attack.name}:\n`)
     if (Math.random() < source.accuracy) {
-        target.hp -= attack.points
+        const points = Math.round((Math.random() + 0.1) * attack.points)
+        target.hp -= points
         setTimeout(() => {
+            if (target.hp <= 0) {target.hp = 0}
             target.hpBarEl.style.width = `${target.hp}%`
         }, timeOutShort);
-        printMessage(timeOutShort, `IT DOES ${attack.points} POINTS OF DAMAGE!`)
+        printMessage(timeOutShort, `IT DOES ${points} POINTS OF DAMAGE!`)
     } else {
         printMessage(timeOutShort, `MISSED!`)
     }
@@ -122,8 +139,6 @@ const newEnemy = (currentEnemy) => {
 }
 
 // Item
-
-// Update Health Bar
 
 // Retreat
 
@@ -148,7 +163,10 @@ class Fighter {
         this.isEnemy = isEnemy
     }
     kill = () => {
-        this.domPicture.syle.animation = 'fade-out'
+        console.log (`killing ${this.domImg}`)
+        setTimeout(() => {
+            this.domImg.classList.add('kill')
+        }, timeOutLong);
     }
 }
 

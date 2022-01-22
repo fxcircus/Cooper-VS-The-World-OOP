@@ -95,6 +95,17 @@
     }
 }
 
+@keyframes kill-animation{
+    0% {
+        transform: translate(0, 0);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(0, 500px);
+        opacity: 0;
+    }
+}
+
 body{
     font-family:'Press Start 2P';
     height: 1080px;
@@ -338,3 +349,12 @@ button:hover {
     border-radius: 2%;
     background: orange;
   }
+  .kill{
+    animation: kill-animation;
+    animation-duration: 1s;
+    animation-fill-mode:forwards; 
+  }
+  /* #garbage-truck{
+    
+    transition: width 5.5s linear;
+  } */
