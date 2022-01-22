@@ -294,8 +294,21 @@ button:hover {
   }
 
   .progress{
-      background: greenyellow;
+      background: red;
       width: 70%;
+      border: solid blue;
+  }
+  
+  #enemy-hp{
+    background: greenyellow;
+    width: 100%;
+    height: 100%;
+  }
+
+  #cooper-hp{
+    background: greenyellow;
+    width: 100%;
+    height: 100%;
   }
 
   .action-buttons{

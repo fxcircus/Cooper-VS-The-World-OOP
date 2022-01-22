@@ -6,7 +6,8 @@ const cooperAttacks = [{name:"LICK", points:7}, {name:"Fish Breath", points:20}]
 const truckAttacks = [{name:"Honk", points:25}, {name:"Dump garbage", points:30}]
 const sprinklerAttacks = [{name:"Splash", points:30}, {name:"Hiss", points:40}]
 const fireworksAttacks = [{name:"Big Boom", points:50}, {name:"Smoke", points:40}]
-
+const timeOutShort = 2000
+const timeOutLong = 4000
 
 //////////////////////////////
 // DOM
@@ -50,19 +51,22 @@ cooperAtkTwoEl.addEventListener('click', (evt) => {
 //////////////////////////////
 
 // Timeout Message
-const printMessage = (message) => {
+const printMessage = (time, message) => {
+    textAreaEl.textContent =''
+    const newText = document.createTextNode(message)
     setTimeout(() => {
-        textAreaEl.textContent = message
-    }, 0);
+        textAreaEl.appendChild(newText)
+    }, time);
 }
 
 // Attack
 const attack = (source, target, attack) => {
+    printMessage(0, `${source.name} USES ${attack.name}:\n`)
     if (Math.random() < source.accuracy) {
         target.hp -= attack.points
-        printMessage(`${source.name} DOES ${attack.points} POINTS!`)
+        printMessage(timeOutShort, `IT DOES ${attack.points} POINTS OF DAMAGE!`)
     } else {
-        printMessage(`${source.name} MISSED!`)
+        printMessage(timeOutShort, `MISSED!`)
     }
 }
 
