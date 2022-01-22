@@ -6,6 +6,7 @@ const enemyPhotoEl = document.querySelector('#enemy-photo')
 const newGameBtnEl = document.querySelector('.new-game-button')
 const newGameModalEl = document.querySelector('#new-game-modal')
 const mapModal = document.querySelector('#game-map-modal')
+const playerLostModal = document.querySelector('#player-lost-modal')
 const fightModalEl = document.querySelector('#fight-modal')
 const battleButtonEl = document.querySelector('#attack-button')
 const textAreaEl = document.querySelector('#text-area')
@@ -26,7 +27,7 @@ sprinklerFighterImg.setAttribute('src', 'images/sprinkler-cropped.png')
 const fireworksFighterImg = document.createElement('img')
 fireworksFighterImg.setAttribute('src', 'images/fireworks.gif')
 
-const playerLostModal = document.querySelector('#player-lost-modal')
+
 const restartGameBtnEl = document.querySelector('#restart-game')
 // const reloadGameButtonEl = document.createElement('button')
 
@@ -277,7 +278,7 @@ ELSE -> Add Attack & Item buttons, Remove "Player Turn Botton"
 // cooperAttacks[0].points=100000
 // fightModalEl.classList.add('show')
 newGameModalEl.style.display = 'flex'
-
+// playerLostModal.style.display = 'grid'
 // change cooper stats
 // cooper.hp = 100
 // let cooperHpStat = 1

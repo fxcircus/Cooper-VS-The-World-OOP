@@ -398,11 +398,27 @@ button:hover{
     width: 1920px;
     border: 2px solid;
     display: none;
-    justify-content: center;
-    align-content: center;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 360px);
+    
+    animation-name: fade-in;
+    animation-duration: 0.3s;
+    animation-fill-mode:forwards;
 }
-#player-lost-modal button{
-    height: 50%;
+#cooper-lost-photo{
+    border:solid yellow 20px;
+    grid-column: 2;
+    grid-row: 1;
+    height: 250%;
+    /* display: flex;
+    justify-content: center;
+    align-content: center; */
+}
+#restart-game{
+    /* height: 50%; */
+    font-size: 80px;
+    grid-column: 2;
+    grid-row: 3;
     margin: 5px;
     border-radius: 8px;
     background-color: white;
