@@ -1,12 +1,8 @@
-
 //////////////////////////////
 // DOM
 //////////////////////////////
-
 const cooperWalkingEl = document.querySelector('.cooper-walking')
-
-// cooperWalkingEl.style.gridColumn = 1
-
+const enemyPhotoEl = document.querySelector('#enemy-photo')
 const newGameBtnEl = document.querySelector('.new-game-button')
 const newGameModalEl = document.querySelector('#new-game-modal')
 const mapModal = document.querySelector('#game-map-modal')
@@ -28,8 +24,9 @@ const enemyTitleEl = document.querySelector('#enemy-title')
 const reloadBattleButtonEl = document.createElement('button')
 const reloadGameButtonEl = document.createElement('button')
 const sprinklerFighterImg = document.createElement('img')
-sprinklerFighterImg.setAttribute('src', 'images/fireworks.gif')
+sprinklerFighterImg.setAttribute('src', 'images/sprinkler-cropped.png')
 const fireworksFighterImg = document.createElement('img')
+fireworksFighterImg.setAttribute('src', 'images/fireworks.gif')
 
 newGameBtnEl.addEventListener('click', (evt) => {
     newGameModalEl.removeChild(newGameBtnEl)
@@ -51,14 +48,13 @@ cooperAtkTwoEl.addEventListener('click', (evt) => {
 })
 
 enemyButtonsEls.addEventListener('click', (evt) => {
-    console.log(currentEnemy)
+    // console.log(currentEnemy)
     attack (currentEnemy, cooper, currentEnemy.attacks[Math.round(Math.random())], false)
 })
 
 //////////////////////////////
 // Global Variables 
 //////////////////////////////
-let storyProgress = 0;
 const cooperAttacks = [{name:"LICK", points:30}, {name:"FISH BREATH", points:60}]
 const truckAttacks = [{name:"HONK", points:25}, {name:"DUMP GARBAGE", points:30}]
 const sprinklerAttacks = [{name:"SPLASH", points:30}, {name:"HISS", points:40}]
@@ -67,6 +63,7 @@ const timeOutShort = 1500
 const timeOutLong = 3000
 const timeOutLast = 5000
 const storiesArr =['part-1', 'part-2', 'part-3']
+
 //////////////////////////////
 // Functions
 //////////////////////////////
@@ -78,20 +75,26 @@ const nextStory = () => {
     if (storiesArr.length === 3) {
         cooperWalkingEl.classList.add(currentStoryAnimation)
         mapModal.classList.add('show')
+        console.log('im here 1')
         storiesArr.shift()
-        console.log(enemyAppearsWarningEl)
-        
+        // console.log(enemyAppearsWarningEl)
     } else {
         cooperWalkingEl.classList.remove(currentStoryAnimation)
         if (storiesArr.length === 2) {
+            console.log('im here 2')
             enemyAppearsWarningEl.textContent='SPRINKLER!'
             cooperWalkingEl.classList.add(currentStoryAnimation)
             cooperWalkingEl.style.gridColumn = 1
+            storiesArr.shift()
         } else if (length === 1) {
+            console.log('im here 3')
             enemyAppearsWarningEl.textContent='FIREWORKS!'
+            cooperWalkingEl.style.gridRow = 1
+            storiesArr.shift()
         }
         mapModal.classList.add('show')
-        storiesArr.shift()
+        
+        console.log (storiesArr)
     }
 }
 
@@ -150,7 +153,7 @@ const printMessage = (time, message) => {
 
 // New Attack:
 const attack = (source, target, attack, isCooper) => {
-    console.log(source)
+    // console.log(source)
     printMessage(0, `${source.name} USES ${attack.name}:\n`)
     if (Math.random() < source.accuracy) {
         const points = Math.round((Math.random() + 0.1) * attack.points)
@@ -173,7 +176,8 @@ const attack = (source, target, attack, isCooper) => {
 
 // Instantiante New Enemy and fight modal:
 const newEnemy = (currentEnemy) => {
-    console.log(`new enemy - ${enemiesArr[0].name}`)
+    
+    // console.log(`new enemy - ${enemiesArr[0].name}`)
     currentEnemy.hpBarEl = enemyHpEl
     setTimeout(() => {
         enemyHpEl.style.width = '100%' 
@@ -181,6 +185,10 @@ const newEnemy = (currentEnemy) => {
         cooperAtkOneEl.style.display ='grid'
         cooperAtkTwoEl.style.display ='grid'
         cooperItemsEl.style.display ='grid'
+        enemyPhotoEl.appendChild(currentEnemy.domImg)
+
+        cooper.hp = 100
+        cooper.hpBarEl.style.width = `100%`
     }, timeOutLast);
 }
 
@@ -206,9 +214,13 @@ class Fighter {
         this.isEnemy = isEnemy
     }
     kill = () => {
-        console.log (`killing ${this.domImg}`)
+        // console.log (`killing ${this.domImg}`)
         setTimeout(() => {
             this.domImg.classList.add('kill')
+            setTimeout(() => {
+                enemyPhotoEl.removeChild(this.domImg)
+            }, timeOutShort);
+
         }, timeOutLong);
         enemiesArr.shift()
         currentEnemy = enemiesArr[0]
