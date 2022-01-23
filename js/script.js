@@ -28,9 +28,13 @@ sprinklerFighterImg.setAttribute('src', 'images/sprinkler-cropped.png')
 const fireworksFighterImg = document.createElement('img')
 fireworksFighterImg.setAttribute('src', 'images/fireworks.gif')
 
-
+const actionButtonsEl = document.querySelector('#cooper-buttons')
 const restartGameBtnEl = document.querySelector('#restart-game')
 const userWonButtonEl = document.querySelector('#restart-game2')
+
+const treatButtonEl = document.createElement('button')
+treatButtonEl.classList.add('items-button')
+treatButtonEl.textContent='TREAT'
 // const reloadGameButtonEl = document.createElement('button')
 
 newGameBtnEl.addEventListener('click', (evt) => {
@@ -65,6 +69,23 @@ restartGameBtnEl.addEventListener('click', (evt) => {
 userWonButtonEl.addEventListener('click', (evt) => {
     location.reload()
 })
+
+cooperItemsEl.addEventListener('click', (evt) => {
+    cooperAtkOneEl.style.display ='none'
+    cooperAtkTwoEl.style.display ='none'
+    cooperItemsEl.style.display ='none'
+    actionButtonsEl.appendChild(treatButtonEl)
+    // location.reload()
+})
+
+treatButtonEl.addEventListener('click', (evt) => {
+    printMessage(0,'YUM! +25 HEALTH!')
+    cooper.hp += 25
+    cooper.hpBarEl.style.width = `${cooper.hp}%`
+    switchFightButtons(true)
+    actionButtonsEl.removeChild(treatButtonEl)
+})
+
 
 //////////////////////////////
 // Global Variables 
