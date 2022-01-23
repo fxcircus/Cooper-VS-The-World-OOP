@@ -222,11 +222,13 @@ const attack = (source, target, attack, isCooper) => {
     // console.log(source)
     printMessage(0, `${source.name} USES ${attack.name}:\n`)
     if (Math.random() < source.accuracy) {
+        fightModalEl.classList.add('shake-board')
         const points = Math.round((Math.random() + 0.1) * attack.points)
         target.hp -= points
         setTimeout(() => {
             if (target.hp <= 0) {target.hp = 0}
             target.hpBarEl.style.width = `${target.hp}%`
+            fightModalEl.classList.remove('shake-board')
         }, timeOutShort);
         printMessage(timeOutShort, `IT DOES ${points} POINTS OF DAMAGE!`)
     } else {

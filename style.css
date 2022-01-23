@@ -121,13 +121,13 @@
         transform: translate(0, 0);
     }
     25% {
-        transform: translate(100px, 0);
+        transform: translate(10px, 0);
     }
     50% {
         transform: translate(0, 0);
     }
     75% {
-        transform: translate(-100px, 0);
+        transform: translate(-10px, 0);
     }
     100% {
         transform: translate(0, 0);
@@ -207,7 +207,12 @@ button:hover{
 .show{
     display:grid!important;
 }
-
+.shake-board{
+    animation:shake;
+    animation-delay: 1.2s;
+    animation-duration: 0.2s;
+    animation-fill-mode:forwards;
+}
 .part-1{
     animation-name: walk-story-1;
     animation-duration: 8.8s;
@@ -331,10 +336,9 @@ button:hover{
       "photo1 stats1"
       "stats2 photo2"
       "text text";
-    animation-name: fade-in;
-    /* animation-delay: 3s; */
+    /* animation-name: fade-in;
     animation-duration: 1s;
-    animation-fill-mode:forwards;
+    animation-fill-mode:forwards; */
 }
 #enemy-stats{
     grid-area:stats1;
@@ -346,7 +350,7 @@ button:hover{
     justify-content: center;
     transition: width 2s linear 1s;
     animation-name: blow-up;
-    animation-duration: 2.5s;
+    animation-duration: 1s;
     animation-fill-mode:forwards;
     /* background: green; */
 }
