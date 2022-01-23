@@ -30,6 +30,7 @@ fireworksFighterImg.setAttribute('src', 'images/fireworks.gif')
 
 
 const restartGameBtnEl = document.querySelector('#restart-game')
+const userWonButtonEl = document.querySelector('#restart-game2')
 // const reloadGameButtonEl = document.createElement('button')
 
 newGameBtnEl.addEventListener('click', (evt) => {
@@ -59,10 +60,15 @@ enemyButtonsEls.addEventListener('click', (evt) => {
 restartGameBtnEl.addEventListener('click', (evt) => {
     location.reload()
 })
+
+userWonButtonEl.addEventListener('click', (evt) => {
+    location.reload()
+})
+
 //////////////////////////////
 // Global Variables 
 //////////////////////////////
-const cooperAttacks = [{name:"LICK", points:30}, {name:"FISH BREATH", points:60}]
+const cooperAttacks = [{name:"LICK", points:11130}, {name:"FISH BREATH", points:60}]
 const truckAttacks = [{name:"HONK", points:25}, {name:"DUMP GARBAGE", points:30}]
 const sprinklerAttacks = [{name:"SPLASH", points:30}, {name:"HISS", points:40}]
 const fireworksAttacks = [{name:"BIG BOOM", points:50}, {name:"SMOKE", points:40}]
@@ -294,6 +300,7 @@ ELSE -> Add Attack & Item buttons, Remove "Player Turn Botton"
 // fightModalEl.classList.add('show')
 newGameModalEl.style.display = 'flex'
 // playerLostModal.style.display = 'grid'
+// playerWonModal.style.display = 'grid'
 // change cooper stats
 // cooper.hp = 100
 // let cooperHpStat = 1
