@@ -78,22 +78,26 @@ cooperItemsEl.addEventListener('click', (evt) => {
     cooperAtkTwoEl.style.display ='none'
     cooperItemsEl.style.display ='none'
     actionButtonsEl.appendChild(treatButtonEl)
+    actionButtonsEl.appendChild(boneButtonEl)
     // location.reload()
 })
 
 treatButtonEl.addEventListener('click', (evt) => {
-    printMessage(0,'YUM! +25 HEALTH!')
-    cooper.hp += 25
+    printMessage(0,`YUM! +${treatHealth} HEALTH!`)
+    cooper.hp += treatHealth
+    if (cooper.hp > 100) {cooper.hp = 100}
     cooper.hpBarEl.style.width = `${cooper.hp}%`
     switchFightButtons(true)
+    treatHealth +=10
     actionButtonsEl.removeChild(treatButtonEl)
     actionButtonsEl.removeChild(boneButtonEl)
+    treatHealth +=10
 })
 
 boneButtonEl.addEventListener('click', (evt) => {
-    printMessage(0,'+100 DAMAGE TO ALL ATTACKS!')
-    cooper.hp += 25
-    cooper.hpBarEl.style.width = `${cooper.hp}%`
+    printMessage(0,'YOUR ATTACK DAMAGE INCREASES!')
+    cooperAttacks[0].points+= 100
+    cooperAttacks[1].points+= 100
     switchFightButtons(true)
     actionButtonsEl.removeChild(treatButtonEl)
     actionButtonsEl.removeChild(boneButtonEl)
@@ -112,6 +116,7 @@ const timeOutLast = 5000
 const storiesArr =['part-1', 'part-2', 'part-3']
 let cooperHpStat = 100
 let roundsWon = -1
+let treatHealth =25
 
 //////////////////////////////
 // Functions
