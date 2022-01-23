@@ -35,7 +35,10 @@ const userWonButtonEl = document.querySelector('#restart-game2')
 const treatButtonEl = document.createElement('button')
 treatButtonEl.classList.add('items-button')
 treatButtonEl.textContent='TREAT'
-// const reloadGameButtonEl = document.createElement('button')
+
+const boneButtonEl = document.createElement('button')
+boneButtonEl.classList.add('items-button')
+boneButtonEl.textContent='bone'
 
 newGameBtnEl.addEventListener('click', (evt) => {
     // newGameModalEl.removeChild(newGameBtnEl)
@@ -46,7 +49,7 @@ newGameBtnEl.addEventListener('click', (evt) => {
 battleButtonEl.addEventListener('click', (evt) => {
     mapModal.classList.remove('show')
     fightModalEl.classList.add('show')
-    printMessage(timeOutShort,`A WILD ${currentEnemy.name} APPEARED!`)
+    printMessage(timeOutShort,`A WILD ${currentEnemy.name} APPEARS!`)
 })
 
 cooperAtkOneEl.addEventListener('click', (evt) => {
@@ -84,8 +87,17 @@ treatButtonEl.addEventListener('click', (evt) => {
     cooper.hpBarEl.style.width = `${cooper.hp}%`
     switchFightButtons(true)
     actionButtonsEl.removeChild(treatButtonEl)
+    actionButtonsEl.removeChild(boneButtonEl)
 })
 
+boneButtonEl.addEventListener('click', (evt) => {
+    printMessage(0,'+100 DAMAGE TO ALL ATTACKS!')
+    cooper.hp += 25
+    cooper.hpBarEl.style.width = `${cooper.hp}%`
+    switchFightButtons(true)
+    actionButtonsEl.removeChild(treatButtonEl)
+    actionButtonsEl.removeChild(boneButtonEl)
+})
 
 //////////////////////////////
 // Global Variables 
@@ -93,7 +105,7 @@ treatButtonEl.addEventListener('click', (evt) => {
 const cooperAttacks = [{name:"LICK", points:30}, {name:"FISH BREATH", points:60}]
 const truckAttacks = [{name:"HONK", points:25}, {name:"DUMP GARBAGE", points:30}]
 const sprinklerAttacks = [{name:"SPLASH", points:30}, {name:"HISS", points:40}]
-const fireworksAttacks = [{name:"BIG BOOM", points:50}, {name:"SMOKE", points:40}]
+const fireworksAttacks = [{name:"BIG BOOM", points:40}, {name:"SMOKE", points:40}]
 const timeOutShort = 1500
 const timeOutLong = 3000
 const timeOutLast = 5000
