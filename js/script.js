@@ -43,7 +43,7 @@ boneButtonEl.textContent='bone'
 
 newGameBtnEl.addEventListener('click', (evt) => {
     newGameModalEl.classList.remove('show')
-    // playAudio(mapMusic)
+    playAudio(mapMusic)
     nextStory()
 })
 
@@ -119,7 +119,7 @@ const storiesArr =['part-1', 'part-2', 'part-3']
 let cooperHpStat = 100
 let roundsWon = -1
 let treatHealth =25
-const mapMusic = 'audio/map-music.mp3'
+const mapMusic = 'audio/map-music-short.mp3'
 const fightMusic = 'audio/fight-music-1.mp3'
 const hitSoundFx = 'audio/hit-sound-effect.mp3' 
 

@@ -311,9 +311,9 @@ button:hover{
     grid-row: 2;
     font-size: 30px;
     animation-name: flicker;
-    animation-delay: 9s;
+    animation-delay: 11s;
     animation-duration: 2s;
-    /* animation-fill-mode:ininite; */
+    animation-iteration-count:infinite;
     border-radius: 8px;
     background-color: white;
     border: solid black 4px;
