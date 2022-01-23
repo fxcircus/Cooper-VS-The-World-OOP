@@ -8,6 +8,7 @@ const newGameModalEl = document.querySelector('#new-game-modal')
 const mapModal = document.querySelector('#game-map-modal')
 const playerLostModal = document.querySelector('#player-lost-modal')
 const fightModalEl = document.querySelector('#fight-modal')
+const playerWonModal = document.querySelector('#player-won-modal')
 const battleButtonEl = document.querySelector('#attack-button')
 const textAreaEl = document.querySelector('#text-area')
 const cooperFighterImg = document.querySelector('#cooper-back-image')
@@ -70,6 +71,8 @@ const timeOutLong = 3000
 const timeOutLast = 5000
 const storiesArr =['part-1', 'part-2', 'part-3']
 let cooperHpStat = 100
+let roundsWon = -1
+
 //////////////////////////////
 // Functions
 //////////////////////////////
@@ -109,7 +112,12 @@ const endFight = (result) => {
     if (result === 'won') {
         setTimeout(() => {
             fightModalEl.classList.remove('show')
-            nextStory()
+            if (roundsWon  < 3) {
+                nextStory()    
+            } else {
+                
+            }
+            
         }, timeOutLast);
     } else if (result === 'lost') {
         setTimeout(() => {
@@ -188,20 +196,27 @@ const attack = (source, target, attack, isCooper) => {
 
 // Instantiante New Enemy and fight modal:
 const newEnemy = (currentEnemy) => {
-    
-    // console.log(`new enemy - ${enemiesArr[0].name}`)
-    currentEnemy.hpBarEl = enemyHpEl
-    setTimeout(() => {
-        enemyHpEl.style.width = '100%' 
-        enemyTitleEl.textContent=currentEnemy.name
-        cooperAtkOneEl.style.display ='grid'
-        cooperAtkTwoEl.style.display ='grid'
-        cooperItemsEl.style.display ='grid'
-        enemyPhotoEl.appendChild(currentEnemy.domImg)
+    ++roundsWon
+    console.log(roundsWon)
+    if (roundsWon < 3) {
+        currentEnemy.hpBarEl = enemyHpEl
+        setTimeout(() => {
+            enemyHpEl.style.width = '100%' 
+            enemyTitleEl.textContent=currentEnemy.name
+            cooperAtkOneEl.style.display ='grid'
+            cooperAtkTwoEl.style.display ='grid'
+            cooperItemsEl.style.display ='grid'
+            enemyPhotoEl.appendChild(currentEnemy.domImg)
 
-        cooper.hp = 100
-        cooper.hpBarEl.style.width = `100%`
-    }, timeOutLast);
+            cooper.hp = 100
+            cooper.hpBarEl.style.width = `100%`
+        }, timeOutLast);
+    } else {
+        setTimeout(() => {
+            fightModalEl.classList.remove('show')
+            playerWonModal.classList.add('show') 
+        }, timeOutLast);
+    }
 }
 
 // Item:
