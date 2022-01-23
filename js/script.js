@@ -34,7 +34,8 @@ const userWonButtonEl = document.querySelector('#restart-game2')
 // const reloadGameButtonEl = document.createElement('button')
 
 newGameBtnEl.addEventListener('click', (evt) => {
-    newGameModalEl.removeChild(newGameBtnEl)
+    // newGameModalEl.removeChild(newGameBtnEl)
+    newGameModalEl.classList.remove('show')
     nextStory()
 })
 
@@ -68,7 +69,7 @@ userWonButtonEl.addEventListener('click', (evt) => {
 //////////////////////////////
 // Global Variables 
 //////////////////////////////
-const cooperAttacks = [{name:"LICK", points:11130}, {name:"FISH BREATH", points:60}]
+const cooperAttacks = [{name:"LICK", points:30}, {name:"FISH BREATH", points:60}]
 const truckAttacks = [{name:"HONK", points:25}, {name:"DUMP GARBAGE", points:30}]
 const sprinklerAttacks = [{name:"SPLASH", points:30}, {name:"HISS", points:40}]
 const fireworksAttacks = [{name:"BIG BOOM", points:50}, {name:"SMOKE", points:40}]
@@ -106,6 +107,7 @@ const nextStory = () => {
             enemyAppearsWarningEl.textContent='FIREWORKS!'
             cooperWalkingEl.classList.add(currentStoryAnimation)
             cooperWalkingEl.style.gridRow = 1
+            cooperWalkingEl.style.gridColumn = 2
             storiesArr.shift()
         }
         mapModal.classList.add('show')
@@ -298,9 +300,10 @@ ELSE -> Add Attack & Item buttons, Remove "Player Turn Botton"
 //////////////////////////////
 // cooperAttacks[0].points=100000
 // fightModalEl.classList.add('show')
-newGameModalEl.style.display = 'flex'
 // playerLostModal.style.display = 'grid'
 // playerWonModal.style.display = 'grid'
 // change cooper stats
 // cooper.hp = 100
 // let cooperHpStat = 1
+// newGameModalEl.style.display = 'grid'
+newGameModalEl.classList.add('show')

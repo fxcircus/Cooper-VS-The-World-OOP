@@ -42,10 +42,10 @@
     transform: translate(0, 0);
     }
     30% {
-    transform: translate(1000px, 0);
+    transform: translate(500px, 0);
     }
     100% {
-    transform: translate(1000px, 600px);
+    transform: translate(500px, 600px);
     }
 }
 @keyframes fade-out {
@@ -160,9 +160,35 @@ button:hover{
     transform: scale(1.2);
 }
 #new-game-modal{
+    height: 1080px;
+    width: 1920px;
     display: none;
-    justify-content: center;
-    align-content: center;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 270px);
+    /* border: black solid; */
+
+}
+#cooper-keyboard-photo{
+    border:solid yellow 20px;
+    grid-column: 2;
+    grid-row: 1;
+    height:180%;
+}
+#new-game-text{
+    grid-column: 2;
+    grid-row: 3;
+    font-size: 30px;
+}
+.new-game-button{
+    font-size: 80px;
+    grid-column: 2;
+    grid-row: 4;
+    margin: 5px;
+    border-radius: 8px;
+    background-color: white;
+    border: solid black 4px;
+    border-style: solid none;
+    font-family:'Press Start 2P';
 }
 #game-map-modal{
     display:none;
@@ -278,6 +304,7 @@ button:hover{
     opacity: 0;
     grid-column: 3;
     grid-row: 2;
+    font-size: 30px;
     animation-name: fade-in;
     animation-delay: 9s;
     animation-duration: 1s;
@@ -433,7 +460,7 @@ button:hover{
     border: 2px solid;
     display: none;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 360px);
+    grid-template-rows: repeat(4, 270px);
     
     animation-name: fade-in;
     animation-duration: 0.3s;
@@ -443,7 +470,7 @@ button:hover{
     /* height: 50%; */
     font-size: 80px;
     grid-column: 2;
-    grid-row: 3;
+    grid-row: 4;
     margin: 5px;
     border-radius: 8px;
     background-color: white;
@@ -454,9 +481,13 @@ button:hover{
 #cooper-won-photo{
     border:solid yellow 20px;
     grid-column: 2;
-    grid-row: 1;
+    grid-row: 2;
     height: 250%;
     /* display: flex;
     justify-content: center;
     align-content: center; */
+}
+#win-text{
+    grid-column: 2;
+    font-size: 70px;
 }
