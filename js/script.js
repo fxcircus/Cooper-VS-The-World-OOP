@@ -1,5 +1,4 @@
-var audio = new Audio('audio/map-music.mp3');
-audio.play();
+
 //////////////////////////////
 // DOM
 //////////////////////////////
@@ -43,8 +42,8 @@ boneButtonEl.classList.add('items-button')
 boneButtonEl.textContent='bone'
 
 newGameBtnEl.addEventListener('click', (evt) => {
-    // newGameModalEl.removeChild(newGameBtnEl)
     newGameModalEl.classList.remove('show')
+    // playAudio(mapMusic)
     nextStory()
 })
 
@@ -52,6 +51,7 @@ battleButtonEl.addEventListener('click', (evt) => {
     mapModal.classList.remove('show')
     fightModalEl.classList.add('show')
     printMessage(timeOutShort,`A WILD ${currentEnemy.name} APPEARS!`)
+    playAudio(fightMusic)
 })
 
 cooperAtkOneEl.addEventListener('click', (evt) => {
@@ -119,10 +119,20 @@ const storiesArr =['part-1', 'part-2', 'part-3']
 let cooperHpStat = 100
 let roundsWon = -1
 let treatHealth =25
+const mapMusic = 'audio/map-music.mp3'
+const fightMusic = 'audio/fight-music-1.mp3'
+const hitSoundFx = 'audio/hit-sound-effect.mp3' 
 
 //////////////////////////////
 // Functions
 //////////////////////////////
+
+// Play audio
+const playAudio = (sound) => {
+    let audio = new Audio(sound);
+    // audio.pause();
+    audio.play();
+}
 
 // Next Story, Or End Credits:
 const nextStory = () => {
@@ -228,6 +238,7 @@ const attack = (source, target, attack, isCooper) => {
         const points = Math.round((Math.random() + 0.1) * attack.points)
         target.hp -= points
         setTimeout(() => {
+            playAudio(hitSoundFx)
             if (target.hp <= 0) {target.hp = 0}
             target.hpBarEl.style.width = `${target.hp}%`
             fightModalEl.classList.remove('shake-board')
@@ -349,4 +360,3 @@ ELSE -> Add Attack & Item buttons, Remove "Player Turn Botton"
 // let cooperHpStat = 1
 // newGameModalEl.style.display = 'grid'
 newGameModalEl.classList.add('show')
-
