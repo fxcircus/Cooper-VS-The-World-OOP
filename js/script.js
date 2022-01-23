@@ -1,3 +1,5 @@
+var audio = new Audio('audio/map-music.mp3');
+audio.play();
 //////////////////////////////
 // DOM
 //////////////////////////////
@@ -347,3 +349,4 @@ ELSE -> Add Attack & Item buttons, Remove "Player Turn Botton"
 // let cooperHpStat = 1
 // newGameModalEl.style.display = 'grid'
 newGameModalEl.classList.add('show')
+

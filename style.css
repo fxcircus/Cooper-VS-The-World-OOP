@@ -154,7 +154,7 @@
 body{
     font-family:'Press Start 2P';
     height: 1080px;
-    width: 1920px;
+    width: 1280px;
 }
 button:hover{
     transform: scale(1.2);
@@ -310,10 +310,10 @@ button:hover{
     grid-column: 3;
     grid-row: 2;
     font-size: 30px;
-    animation-name: fade-in;
+    animation-name: flicker;
     animation-delay: 9s;
-    animation-duration: 1s;
-    animation-fill-mode:forwards;
+    animation-duration: 2s;
+    /* animation-fill-mode:ininite; */
     border-radius: 8px;
     background-color: white;
     border: solid black 4px;
