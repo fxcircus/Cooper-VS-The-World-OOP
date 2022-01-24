@@ -51,6 +51,7 @@ battleButtonEl.addEventListener('click', (evt) => {
     mapModal.classList.remove('show')
     fightModalEl.classList.add('show')
     printMessage(timeOutShort,`A WILD ${currentEnemy.name} APPEARS!`)
+    pauseAudio(mapMusic)
     playAudio(fightMusic)
 })
 
@@ -119,9 +120,9 @@ const storiesArr =['part-1', 'part-2', 'part-3']
 let cooperHpStat = 100
 let roundsWon = -1
 let treatHealth =25
-const mapMusic = 'audio/map-music-short.mp3'
-const fightMusic = 'audio/fight-music-1.mp3'
-const hitSoundFx = 'audio/hit-sound-effect.mp3' 
+const mapMusic = new Audio ('audio/map-music-short.mp3')
+const fightMusic = new Audio ('audio/fight-music-1.mp3')
+const hitSoundFx = new Audio ('audio/hit-sound-effect.mp3')
 
 //////////////////////////////
 // Functions
@@ -129,11 +130,13 @@ const hitSoundFx = 'audio/hit-sound-effect.mp3'
 
 // Play audio
 const playAudio = (sound) => {
-    let audio = new Audio(sound);
-    // audio.pause();
-    audio.play();
+    sound.currentTime = 0;
+    sound.play();
 }
 
+const pauseAudio = (sound) => {
+    sound.pause();
+}
 // Next Story, Or End Credits:
 const nextStory = () => {
     const currentStoryAnimation = storiesArr[0]
@@ -170,10 +173,11 @@ const endFight = (result) => {
     if (result === 'won') {
         setTimeout(() => {
             fightModalEl.classList.remove('show')
+            pauseAudio(fightMusic)
             if (roundsWon  < 3) {
                 nextStory()    
             } else {
-                
+                playAudio(mapMusic)
             }
             
         }, timeOutLast);
