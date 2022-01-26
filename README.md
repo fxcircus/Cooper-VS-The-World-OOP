@@ -11,7 +11,7 @@ Help Cooper beat his enemies and conquer his fears!
 ## Rules
 You play against the computer, as my dog — Cooper.
 
-There are 3 battles in the game..
+There are 3 battles in the game.
 A short animation plays between the rounds to show player progression.
 The battles load automatically at the end of each segment.
 

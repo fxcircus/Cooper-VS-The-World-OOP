@@ -2,8 +2,8 @@
 
 @keyframes walk-story-1 {
     0% {
-    opacity: 0;
-    transform: translate(0, 0);
+    opacity:0;
+    transform:translate(0, 0);
     }
     10% {
     opacity: 100;
@@ -53,42 +53,43 @@
 
 @keyframes fade-out {
     0% {
-      opacity:100;
+      opacity: 100;
     }
     95% {
-        opacity:0;
+        opacity: 0;
       }
     100% {
-      opacity:0;
+      opacity: 0;
     }
 }
 
 @keyframes fade-in {
     0% {
-      opacity:0;
+      opacity: 0;
     }
     90% {
-      opacity:0;
+      opacity: 0;
     }
     100% {
-      opacity:100;
+      opacity: 100;
     }
 }
 
 @keyframes flicker {
     0% {
-      opacity:0;
+      opacity: 0;
     }
     25% {
-      opacity:100;
+      opacity: 100;
     }
     50% {
-        opacity:0;
+        opacity: 0;
     }
     100% {
-      opacity:100;
+      opacity: 100;
     }
 }
+
 @keyframes slide-in-right {
     0% {
         opacity: 0;
@@ -104,7 +105,7 @@
     }
 }
 
-@keyframes blow-up{
+@keyframes blow-up {
     0% {
         transform: scaleX(0.0);
         transform: scaleY(0.0);
@@ -123,7 +124,7 @@
     }
 }
 
-@keyframes shake{
+@keyframes shake {
     0% {
         transform: translate(0, 0);
     }
@@ -141,7 +142,7 @@
     }
 }
 
-@keyframes kill-animation{
+@keyframes kill-animation {
     0% {
         transform: translate(0, 0);
         opacity: 1;
@@ -162,17 +163,17 @@
     50% { border-color: black; }
 }  
 
-body{
-    font-family:'Press Start 2P';
+body {
+    font-family: 'Press Start 2P';
     height: 1080px;
     width: 1280px;
 }
 
-button:hover{
+button:hover {
     transform: scale(1.2);
 }
 
-#new-game-modal{
+#new-game-modal {
     height: 1080px;
     width: 1920px;
     display: none;
@@ -180,20 +181,20 @@ button:hover{
     grid-template-rows: repeat(4, 270px);
 }
 
-#cooper-keyboard-photo{
-    border:solid yellow 20px;
+#cooper-keyboard-photo {
+    border: solid yellow 20px;
     grid-column: 2;
     grid-row: 1;
-    height:180%;
+    height: 180%;
 }
 
-#new-game-text{
+#new-game-text {
     grid-column: 2;
     grid-row: 3;
     font-size: 30px;
 }
 
-.new-game-button{
+.new-game-button {
     font-size: 80px;
     grid-column: 2;
     grid-row: 4;
@@ -219,87 +220,89 @@ button:hover{
     animation-fill-mode:forwards;
 }
 
-.show{
-    display:grid!important;
+.show {
+    display: grid!important;
 }
 
-.shake-board{
-    animation:shake;
+.shake-board {
+    animation: shake;
     animation-delay: 1.2s;
     animation-duration: 0.2s;
-    animation-fill-mode:forwards;
+    animation-fill-mode: forwards;
 }
 
-.part-1{
+.part-1 {
     animation-name: walk-story-1;
     animation-duration: 8.8s;
-    animation-fill-mode:forwards;
+    animation-fill-mode: forwards;
 }
 
-.part-2{
+.part-2 {
     animation-name: walk-story-2;
     animation-duration: 8.8s;
-    animation-fill-mode:forwards;
-}
-.part-3{
-    animation-name: walk-story-3;
-    animation-duration: 8.8s;
-    animation-fill-mode:forwards;
+    animation-fill-mode: forwards;
 }
 
-.cooper-walking{
-    position:relative;
+.part-3 {
+    animation-name: walk-story-3;
+    animation-duration: 8.8s;
+    animation-fill-mode: forwards;
+}
+
+.cooper-walking {
+    position: relative;
     grid-column: 2;
-    grid-row:3;
+    grid-row: 3;
     display: grid;
     justify-content: center;
     align-content: center;
 }
 
-.cooper-walking img{
-    position:absolute;
-    left:90%;
+.cooper-walking img {
+    position: absolute;
+    left: 90%;
 }
 
-.cooper-walking #cooper-above{
+.cooper-walking #cooper-above {
     animation-name: fade-out;
     height: 92%;
     animation-delay: 2.7s;
     animation-duration: 0.05s;
-    animation-fill-mode:forwards;
+    animation-fill-mode: forwards;
 }
 
-.cooper-walking #cooper-side{
-    opacity:0;
+.cooper-walking #cooper-side {
+    opacity: 0;
     animation-name: fade-in;
     animation-delay: 2.7s;
     animation-duration: 0.05s;
-    animation-fill-mode:forwards;
+    animation-fill-mode: forwards;
 }
 
-.cooper-walking #cooper-side-red{
-    opacity:0;
+.cooper-walking #cooper-side-red {
+    opacity: 0;
     animation-name: flicker;
     animation-delay: 6.8s;
     animation-duration: 2s;
-    animation-fill-mode:forwards;
+    animation-fill-mode: forwards;
 }
 
-#cooper-talking{
+#cooper-talking {
     opacity: 0;
     grid-column: 4 / 5;
-    grid-row:2 / 5;
+    grid-row: 2 / 5;
     display: flex;
     animation-name: slide-in-right;
     animation-delay: 8s;
     animation-duration: 1s;
-    animation-fill-mode:forwards;
+    animation-fill-mode: forwards;
 }
-#bubble-and-text{
+
+#bubble-and-text {
     opacity: 0;
     grid-column: 3;
     grid-row: 1;
-    position:relative;
+    position: relative;
     z-index: 1;
     display: flex;
     flex-direction: column;
@@ -308,27 +311,27 @@ button:hover{
     animation-name: fade-in;
     animation-delay: 8s;
     animation-duration: 1s;
-    animation-fill-mode:forwards;
+    animation-fill-mode: forwards;
 }
 
-.text{
-    position:absolute;
+.text {
+    position: absolute;
     height: 90%;
     width: 90%;
     z-index: 10;
     font-size: 50px;
     padding-left: 30px;
-    padding-top:40px;
+    padding-top: 40px;
 }
 
-.bubble{
+.bubble {
     opacity: 1;
-    position:absolute;
-    top:0;
+    position: absolute;
+    top: 0;
     z-index: 2;
 }
 
-#attack-button{
+#attack-button {
     opacity: 0;
     grid-column: 3;
     grid-row: 2;
@@ -336,22 +339,22 @@ button:hover{
     animation-name: flicker;
     animation-delay: 9s;
     animation-duration: 2s;
-    animation-iteration-count:infinite;
+    animation-iteration-count: infinite;
     border-radius: 8px;
     background-color: white;
     border: solid black 4px;
     border-style: solid none;
-    font-family:'Press Start 2P';
+    font-family: 'Press Start 2P';
 }
 
-#fight-modal{
-    display:none;
+#fight-modal {
+    display: none;
     font-size: 60px;
     border: solid black 25px;
     border-style: double;
     border-radius: 5%;
-    height:900px;
-    width:1400px;
+    height: 900px;
+    width: 1400px;
     padding: 30px 60px;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(3, 360px);
@@ -361,29 +364,29 @@ button:hover{
       "text text";
 }
 
-#enemy-stats{
-    grid-area:stats1;
+#enemy-stats {
+    grid-area: stats1;
 }
 
-#enemy-photo{
-    grid-area:photo1;
+#enemy-photo {
+    grid-area: photo1;
     display: flex;
     justify-content: center;
     transition: width 2s linear 1s;
     animation-name: blow-up;
     animation-duration: 1s;
-    animation-fill-mode:forwards;
+    animation-fill-mode: forwards;
 }
 
-#player-photo{
-    grid-area:photo2;
+#player-photo {
+    grid-area: photo2;
     display: flex;
     justify-content: center;
     transition: width 2s linear 1s;
 }
 
-.stats-area{
-    grid-area:stats2;
+.stats-area {
+    grid-area: stats2;
     padding: 2%;
     display: grid;
     grid-template-columns: 1fr;
@@ -391,31 +394,31 @@ button:hover{
     row-gap: 10%;
 }
 
-.progress{
+.progress {
       background: red;
       width: 70%;
       border: solid blue;
 }
 
-#enemy-hp{
+#enemy-hp {
     background: greenyellow;
     width: 100%;
     height: 100%;
     transition: width 0.5s linear;
 }
 
-#cooper-hp{
+#cooper-hp {
     background: greenyellow;
     width: 100%;
     height: 100%;
     transition: width 0.5s linear;
 }
 
-.action-buttons{
+.action-buttons {
       display: flex;
 }
 
-.action-buttons button{
+.action-buttons button {
     flex:1;
     height: 50%;
     margin: 5px;
@@ -426,25 +429,25 @@ button:hover{
     font-family:'Press Start 2P';
 }
 
-#enemy-turn-btn{
+#enemy-turn-btn {
       display: none;
       animation: blink-caret .55s step-end infinite;
 }
 
-#text-area{
-    grid-area:text;
+#text-area {
+    grid-area: text;
     border: solid grey 20px;
     border-radius: 2%;
     background: orange;
 }
 
-.kill{
+.kill {
     animation: kill-animation;
     animation-duration: 1s;
-    animation-fill-mode:forwards; 
+    animation-fill-mode: forwards; 
 }
 
-#player-lost-modal{
+#player-lost-modal {
     height: 1080px;
     width: 1920px;
     border: 2px solid;
@@ -453,17 +456,17 @@ button:hover{
     grid-template-rows: repeat(3, 360px);
     animation-name: fade-in;
     animation-duration: 0.3s;
-    animation-fill-mode:forwards;
+    animation-fill-mode: forwards;
 }
 
-#cooper-lost-photo{
-    border:solid yellow 20px;
+#cooper-lost-photo {
+    border: solid yellow 20px;
     grid-column: 2;
     grid-row: 1;
     height: 250%;
 }
 
-#restart-game{
+#restart-game {
     font-size: 80px;
     grid-column: 2;
     grid-row: 3;
@@ -472,10 +475,10 @@ button:hover{
     background-color: white;
     border: solid black 4px;
     border-style: solid none;
-    font-family:'Press Start 2P';
+    font-family: 'Press Start 2P';
 }
 
-#player-won-modal{
+#player-won-modal {
     height: 1080px;
     width: 1920px;
     display: none;
@@ -483,10 +486,10 @@ button:hover{
     grid-template-rows: repeat(4, 270px);
     animation-name: fade-in;
     animation-duration: 0.3s;
-    animation-fill-mode:forwards;
+    animation-fill-mode: forwards;
 }
 
-#restart-game2{
+#restart-game2 {
     font-size: 80px;
     grid-column: 2;
     grid-row: 4;
@@ -495,25 +498,25 @@ button:hover{
     background-color: white;
     border: solid black 4px;
     border-style: solid none;
-    font-family:'Press Start 2P';
+    font-family: 'Press Start 2P';
 }
 
-#cooper-won-photo{
+#cooper-won-photo {
     border:solid yellow 20px;
     grid-column: 2;
     grid-row: 2;
     height: 250%;
 }
 
-#win-text{
+#win-text {
     grid-column: 2;
     font-size: 70px;
 }
 
-.items-button{
+.items-button {
     border-radius: 8px;
     background-color: white;
     border: solid black 4px;
     border-style: solid none;
-    font-family:'Press Start 2P';
+    font-family: 'Press Start 2P';
 }
