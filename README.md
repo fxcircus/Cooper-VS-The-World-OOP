@@ -1,22 +1,22 @@
 # Cooper VS The World
-A game inspired by the original Pokémon games for the Game Boy Color.
+A turn based fighting game inspired by the original Pokémon games for the Game Boy Color.
 
 ## Synopsis 
 Cooper wants to go for a walk.
 During the walk, he tackles his greatest fears:
-A garbage truck, a sprinkler, and fireworks!
+A garbage truck, a sprinkler, and fireworks.
 
 Help Cooper beat his enemies and conquer his fears!
 
 ## Rules
-You play against the computer, as my dog — Cooper!
+You play against the computer, as my dog — Cooper.
 
 There are 3 battles in the game..
 A short animation plays between the rounds to show player progression.
 The battles load automatically at the end of each segment.
 
 The player must win all 3 battles to beat the game.
-Loosing a battle will result in loosing the game!
+Loosing a battle will result in loosing the game.
 There are dedicated pages for winning or loosing state where you can reload the page. 
 
 ## Combat mechanics
