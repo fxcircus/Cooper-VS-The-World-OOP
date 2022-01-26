@@ -31,11 +31,11 @@ Cooper has 2 attacks and 2 items:
 The player attacks or uses an item first, then the enemy gets a turn,
 The battle continues until Cooper or his enemies reach 0 hit points.
 
-Each player has an accuracy ratio that determines weather or not the hit or miss.
-If they miss then the other player gets a turn.
-If they hit then they do between 50% to 100% of the attack damage points.
+Each player has an accuracy ratio that determines whether they hit or miss.
+If they miss - the other player gets a turn.
+If they hit - the attack does between 50% to 100% of its' damage points.
 
-### Tools used in the making of this project:
+## Tools used in the making of this project:
 - Coded in JavaScript, HTML, and CSS using Visual Studio Code
 - Orignal music created using Ableton Live
 - All Image manipulation and asset creation was done using photopea.com
