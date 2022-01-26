@@ -234,7 +234,7 @@ const attack = (source, target, attack, isCooper) => {
     printMessage(0, `${source.name} USES ${attack.name}:\n`)
     if (Math.random() < source.accuracy) {
         fightModalEl.classList.add('shake-board')
-        const points = Math.round((Math.random() + 0.1) * attack.points)
+        const points = Math.round((Math.random() * 0.5 + 0.5) * attack.points)
         target.hp -= points
         setTimeout(() => {
             playAudio(hitSoundFx)

@@ -1,7 +1,6 @@
 # Cooper VS The World
 
 A game inspired by the original Pokémon games for the Game Boy Color.
-You play as my dog — Cooper!
 
 ### Synopsis 
 Cooper wants to go for a walk.
@@ -10,8 +9,34 @@ A garbage truck, a sprinkler, and fireworks!
 
 Help Cooper beat his enemies and conquer his fears!
 
+### Rules
+You play against the computer, as my dog — Cooper!
+
+There are 3 battles in the game..
+A short animation plays between the rounds to show player progression.
+The battles load automatically at the end of each segment.
+
+The player must win all 3 battles to beat the game.
+Loosing a battle will result in loosing the game!
+There are dedicated pages for winning or loosing state where you can reload the page. 
+
+#### Combat mechanics
+Each character starts with 100 HP.
+
+Cooper has 2 attacks and 2 items: 
+- Fish breath: does 60 base damage
+- Lick: does 30 base damage
+- Treat: Adds 25 HP and adds +10 each consecutive use
+- Bone: Adds 100 damage to all attacks 
+
+The player attacks or uses an item first, then the enemy gets a turn,
+The battle continues until Cooper or his enemies reach 0 hit points.
+
+Each player has an accuracy ratio that determines weather or not the hit or miss.
+If they miss then the other player gets a turn.
+If they hit then they do between 50% to 100% of the attack damage points.
+
 #### Tools used to make this project:
 - Coded in JavaScript, HTML, and CSS using Visual Studio Code
 - Orignal music created using Ableton Live
 - All Image manipulation and asset creation was done using photopea.com
-
