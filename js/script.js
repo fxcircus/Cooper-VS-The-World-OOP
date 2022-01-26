@@ -1,5 +1,5 @@
 //////////////////////////////
-// DOM elements and listeners
+// DOM Elements And Listeners
 //////////////////////////////
 const newGameBtnEl = document.querySelector('.new-game-button')
 const cooperWalkingEl = document.querySelector('.cooper-walking')
@@ -62,7 +62,6 @@ cooperAtkTwoEl.addEventListener('click', (evt) => {
 })
 
 enemyButtonsEls.addEventListener('click', (evt) => {
-    // console.log(currentEnemy)
     attack (currentEnemy, cooper, currentEnemy.attacks[Math.round(Math.random())], false)
 })
 
@@ -80,7 +79,6 @@ cooperItemsEl.addEventListener('click', (evt) => {
     cooperItemsEl.style.display ='none'
     actionButtonsEl.appendChild(treatButtonEl)
     actionButtonsEl.appendChild(boneButtonEl)
-    // location.reload()
 })
 
 treatButtonEl.addEventListener('click', (evt) => {
@@ -230,7 +228,6 @@ const printMessage = (time, message) => {
 
 // New Attack:
 const attack = (source, target, attack, isCooper) => {
-    // console.log(source)
     printMessage(0, `${source.name} USES ${attack.name}:\n`)
     if (Math.random() < source.accuracy) {
         fightModalEl.classList.add('shake-board')
@@ -254,7 +251,7 @@ const attack = (source, target, attack, isCooper) => {
     }
 }
 
-// Instantiante New Enemy and fight modal:
+// Queue New Enemy And Fight Modal:
 const newEnemy = (currentEnemy) => {
     ++roundsWon
     console.log(roundsWon)
@@ -267,7 +264,6 @@ const newEnemy = (currentEnemy) => {
             cooperAtkTwoEl.style.display ='grid'
             cooperItemsEl.style.display ='grid'
             enemyPhotoEl.appendChild(currentEnemy.domImg)
-
             cooper.hp = 100
             cooper.hpBarEl.style.width = `100%`
         }, timeOutLast);
@@ -292,7 +288,7 @@ class Fighter {
         this.isEnemy = isEnemy
     }
     kill = () => {
-        // console.log (`killing ${this.domImg}`)
+        // console.log (`killing ${this.domImg}`) // for future testing
         setTimeout(() => {
             this.domImg.classList.add('kill')
             setTimeout(() => {
@@ -316,14 +312,12 @@ let currentEnemy = enemiesArr[0]
 newEnemy (currentEnemy)
 
 //////////////////////////////
-// Manual modal tests
+// Manual Modal Test & Troubleshooting Area
 //////////////////////////////
-// cooperAttacks[0].points=100000
-// fightModalEl.classList.add('show')
-// playerLostModal.style.display = 'grid'
-// playerWonModal.style.display = 'grid'
-// change cooper stats
-// cooper.hp = 100
-// let cooperHpStat = 1
-// newGameModalEl.style.display = 'grid'
+// cooperAttacks[0].points=100000 // Make Cooper Invincible
+// fightModalEl.classList.add('show') // Quick Access...
+// playerLostModal.style.display = 'grid' // Quick Access...
+// playerWonModal.style.display = 'grid' // Quick Access...
+// newGameModalEl.style.display = 'grid' // Quick Access...
+
 newGameModalEl.classList.add('show') // show first screen
