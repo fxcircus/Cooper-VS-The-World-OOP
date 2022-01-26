@@ -1,10 +1,9 @@
-
 //////////////////////////////
-// DOM
+// DOM elements and listeners
 //////////////////////////////
+const newGameBtnEl = document.querySelector('.new-game-button')
 const cooperWalkingEl = document.querySelector('.cooper-walking')
 const enemyPhotoEl = document.querySelector('#enemy-photo')
-const newGameBtnEl = document.querySelector('.new-game-button')
 const newGameModalEl = document.querySelector('#new-game-modal')
 const mapModal = document.querySelector('#game-map-modal')
 const playerLostModal = document.querySelector('#player-lost-modal')
@@ -23,15 +22,14 @@ const cooperButtonsEls = document.querySelector('#cooper-buttons')
 const enemyButtonsEls = document.querySelector('#enemy-turn-btn')
 const enemyAppearsWarningEl = document.querySelector('#enemy-appears-warning')
 const enemyTitleEl = document.querySelector('#enemy-title')
+const actionButtonsEl = document.querySelector('#cooper-buttons')
+const restartGameBtnEl = document.querySelector('#restart-game')
+const userWonButtonEl = document.querySelector('#restart-game2')
 
 const sprinklerFighterImg = document.createElement('img')
 sprinklerFighterImg.setAttribute('src', 'images/sprinkler-cropped.png')
 const fireworksFighterImg = document.createElement('img')
 fireworksFighterImg.setAttribute('src', 'images/fireworks.gif')
-
-const actionButtonsEl = document.querySelector('#cooper-buttons')
-const restartGameBtnEl = document.querySelector('#restart-game')
-const userWonButtonEl = document.querySelector('#restart-game2')
 
 const treatButtonEl = document.createElement('button')
 treatButtonEl.classList.add('items-button')
@@ -39,7 +37,7 @@ treatButtonEl.textContent='TREAT'
 
 const boneButtonEl = document.createElement('button')
 boneButtonEl.classList.add('items-button')
-boneButtonEl.textContent='bone'
+boneButtonEl.textContent='BONE'
 
 newGameBtnEl.addEventListener('click', (evt) => {
     newGameModalEl.classList.remove('show')
@@ -127,8 +125,6 @@ const hitSoundFx = new Audio ('audio/hit-sound-effect.mp3')
 //////////////////////////////
 // Functions
 //////////////////////////////
-
-// Play audio
 const playAudio = (sound) => {
     sound.currentTime = 0;
     sound.play();
@@ -137,6 +133,7 @@ const playAudio = (sound) => {
 const pauseAudio = (sound) => {
     sound.pause();
 }
+
 // Next Story, Or End Credits:
 const nextStory = () => {
     const currentStoryAnimation = storiesArr[0]
@@ -146,7 +143,6 @@ const nextStory = () => {
         mapModal.classList.add('show')
         console.log('im here 1')
         storiesArr.shift()
-        // console.log(enemyAppearsWarningEl)
     } else {
         cooperWalkingEl.classList.remove(currentStoryAnimation)
         if (storiesArr.length === 2) {
@@ -206,7 +202,6 @@ const switchFightButtons = (player) => {
                 enemyButtonsEls.style.display ='grid'
             }, timeOutLong)
         }
-        
     } else {
         enemyButtonsEls.style.display ='none'
         if (cooper.hp <= 0) {
@@ -284,15 +279,6 @@ const newEnemy = (currentEnemy) => {
     }
 }
 
-// Item:
-
-
-// Next Story (storyProgress):
-
-
-// Exit Credits Window:
-
-
 //////////////////////////////
 // Classes
 //////////////////////////////
@@ -312,7 +298,6 @@ class Fighter {
             setTimeout(() => {
                 enemyPhotoEl.removeChild(this.domImg)
             }, timeOutShort);
-
         }, timeOutLong);
         enemiesArr.shift()
         currentEnemy = enemiesArr[0]
@@ -326,31 +311,9 @@ cooper.hpBarEl = cooperHpEl
 const grabageTruck = new Fighter ('GARBAGE TRUCK', 100, 0.9, trcukFighterImg, truckAttacks, true)
 const sprinkler = new Fighter ('SPRINKLER', 80, 0.7, sprinklerFighterImg, sprinklerAttacks, true)
 const fireworks = new Fighter ('FIREWORKS', 120, 0.6, fireworksFighterImg, fireworksAttacks, true)
-// let currentEnemy = grabageTruck
 const enemiesArr = [grabageTruck, sprinkler, fireworks]
 let currentEnemy = enemiesArr[0]
 newEnemy (currentEnemy)
-
-//////////////////////////////
-// Fight Runtime
-//////////////////////////////
-
-/*
-USER TURN
-=========
-IF Attack - > Call Attack (Player, Enemy)
-ELSE IF Item -> Call Update Health Bar
-IF Enemy is dead -> Call Next Story (storyProgress)
-ELSE -> add "Player Turn botton"
-
-ENEMY TURN
-==========
-
-Call Attack (Enemy, Player)
-IF player is dead -> Call Reload fight or Restart Game
-ELSE -> Add Attack & Item buttons, Remove "Player Turn Botton"
-
-*/
 
 //////////////////////////////
 // Manual modal tests
@@ -363,4 +326,4 @@ ELSE -> Add Attack & Item buttons, Remove "Player Turn Botton"
 // cooper.hp = 100
 // let cooperHpStat = 1
 // newGameModalEl.style.display = 'grid'
-newGameModalEl.classList.add('show')
+newGameModalEl.classList.add('show') // show first screen
