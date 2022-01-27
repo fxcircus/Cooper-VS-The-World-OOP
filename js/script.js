@@ -55,22 +55,27 @@ battleButtonEl.addEventListener('click', (evt) => {
 
 cooperAtkOneEl.addEventListener('click', (evt) => {
     attack (cooper, currentEnemy, cooperAttacks[0], true)
+    playAudio(btnPrsFx)
 })
 
 cooperAtkTwoEl.addEventListener('click', (evt) => {
     attack (cooper, currentEnemy, cooperAttacks[1], true)
+    playAudio(btnPrsFx)
 })
 
 enemyButtonsEls.addEventListener('click', (evt) => {
     attack (currentEnemy, cooper, currentEnemy.attacks[Math.round(Math.random())], false)
+    playAudio(btnPrsFx)
 })
 
 restartGameBtnEl.addEventListener('click', (evt) => {
     location.reload()
+    playAudio(btnPrsFx)
 })
 
 userWonButtonEl.addEventListener('click', (evt) => {
     location.reload()
+    playAudio(btnPrsFx)
 })
 
 cooperItemsEl.addEventListener('click', (evt) => {
@@ -79,6 +84,7 @@ cooperItemsEl.addEventListener('click', (evt) => {
     cooperItemsEl.style.display ='none'
     actionButtonsEl.appendChild(treatButtonEl)
     actionButtonsEl.appendChild(boneButtonEl)
+    playAudio(btnPrsFx)
 })
 
 treatButtonEl.addEventListener('click', (evt) => {
@@ -91,6 +97,7 @@ treatButtonEl.addEventListener('click', (evt) => {
     actionButtonsEl.removeChild(treatButtonEl)
     actionButtonsEl.removeChild(boneButtonEl)
     treatHealth +=10
+    playAudio(btnPrsFx)
 })
 
 boneButtonEl.addEventListener('click', (evt) => {
@@ -100,6 +107,7 @@ boneButtonEl.addEventListener('click', (evt) => {
     switchFightButtons(true)
     actionButtonsEl.removeChild(treatButtonEl)
     actionButtonsEl.removeChild(boneButtonEl)
+    playAudio(btnPrsFx)
 })
 
 //////////////////////////////
@@ -121,6 +129,7 @@ const fightMusic = new Audio ('audio/fight-music-1.mp3')
 const hitSoundFx = new Audio ('audio/hit-sound-effect.mp3')
 const winMusic = new Audio ('audio/win-music.mp3')
 const looseMusic = new Audio ('audio/loose-music.mp3')
+const btnPrsFx = new Audio ('audio/button-press.mp3')
 
 //////////////////////////////
 // Functions
