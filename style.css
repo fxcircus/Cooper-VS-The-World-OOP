@@ -1,5 +1,43 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Lobster&family=Poiret+One&family=Press+Start+2P&family=Source+Sans+Pro:wght@200&display=swap');
 
+:root {
+    --walk1-y: 50px;
+    --walk1-x: -500px;
+    
+    --walk2-y: -550px;
+    --walk2-x: 550px;
+
+    --walk3-y: 600px;
+    --walk3-x: 500px;
+
+    --slide-in-x: 300px;
+
+    --body-height: 1080px;
+    --body-width: 1280px;
+
+    /* --breakout-window-columns: 2;
+    --breakout-window-rows: 3; */
+    --breakout-window-text-font-size: 30px;
+    --breakout-window-btn-font-size: 80px;
+
+    --modal-height: 1080px;
+    --modal-width: 1920px;
+    --modal-grid-rows: 240px;
+
+    --map-height: 1080px;
+    --map-width: 1920px;
+    --map-template-rows: 270px;
+    --map-text-bubble-font-size: 50px;
+    --map-attack-btn-font-size: 50px;
+    
+    --fight-modal-height: 900px;
+    --fight-modal-width: 1400px;
+    --fight-modal-template-rows: 360px;
+    --fight-character-text-font-size: 60px;
+    --fight-modal-btn-font-size: 20px;
+
+}
+
 @keyframes walk-story-1 {
     0% {
     opacity:0;
@@ -10,10 +48,10 @@
     transform: translate(0, 0);
     }
     30% {
-    transform: translate(0, 50px);
+    transform: translate(0, var(--walk1-y));
     }
     100% {
-    transform: translate(-500px, 50px);
+    transform: translate(var(--walk1-x), var(--walk1-y));
     }
 }
 
@@ -27,10 +65,10 @@
     transform: translate(0, 0);
     }
     30% {
-    transform: translate(0, -550px);
+    transform: translate(0, var(--walk2-y));
     }
     100% {
-    transform: translate(500px, -550px);
+    transform: translate(var(--walk2-x), var(--walk2-y));
     }
 }
 
@@ -93,11 +131,11 @@
 @keyframes slide-in-right {
     0% {
         opacity: 0;
-        transform: translate(300px, 0);
+        transform: translate(var(--slide-in-x), 0);
     }
     80% {
         opacity: 0;
-        transform: translate(300px, 0);
+        transform: translate(var(--slide-in-x), 0);
     }
     100% {
         opacity: 1;
@@ -165,8 +203,8 @@
 
 body {
     font-family: 'Press Start 2P';
-    height: 1080px;
-    width: 1280px;
+    height: var(--body-height);
+    width: var(--body-width);
 }
 
 button:hover {
@@ -174,11 +212,11 @@ button:hover {
 }
 
 #new-game-modal {
-    height: 1080px;
-    width: 1920px;
+    height: var(--modal-height);
+    width: var(--modal-width);
     display: none;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(4, 270px);
+    grid-template-rows: repeat(4, var(--modal-grid-rows));
 }
 
 #cooper-keyboard-photo {
@@ -191,14 +229,13 @@ button:hover {
 #new-game-text {
     grid-column: 2;
     grid-row: 3;
-    font-size: 30px;
+    font-size: var(--breakout-window-text-font-size);
 }
 
 .new-game-button {
-    font-size: 80px;
+    font-size: var(--breakout-window-btn-font-size);
     grid-column: 2;
     grid-row: 4;
-    margin: 5px;
     border-radius: 8px;
     background-color: white;
     border: solid black 4px;
@@ -208,13 +245,13 @@ button:hover {
 
 #game-map-modal{
     display:none;
-    height: 1080px;
-    width: 1920px;
+    height: var(--map-height);
+    width: var(--map-width);
     background-image:url("images/cooper_game_map_low.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(4, 270px);
+    grid-template-rows: repeat(4, var(--map-template-rows));
     animation-name: fade-in;
     animation-duration: 0.1s;
     animation-fill-mode:forwards;
@@ -319,9 +356,10 @@ button:hover {
     height: 90%;
     width: 90%;
     z-index: 10;
-    font-size: 50px;
+    font-size: var(--map-text-bubble-font-size);
     padding-left: 30px;
     padding-top: 40px;
+    
 }
 
 .bubble {
@@ -335,7 +373,7 @@ button:hover {
     opacity: 0;
     grid-column: 3;
     grid-row: 2;
-    font-size: 30px;
+    font-size: var(--map-attack-btn-font-size);
     animation-name: flicker;
     animation-delay: 9s;
     animation-duration: 2s;
@@ -349,15 +387,15 @@ button:hover {
 
 #fight-modal {
     display: none;
-    font-size: 60px;
+    font-size: var(--fight-character-text-font-size);
     border: solid black 25px;
     border-style: double;
     border-radius: 5%;
-    height: 900px;
-    width: 1400px;
+    height: var(--fight-modal-height);
+    width: var(--fight-modal-width);
     padding: 30px 60px;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(3, 360px);
+    grid-template-rows: repeat(3, var(--fight-modal-template-rows));
     grid-template-areas: 
       "photo1 stats1"
       "stats2 photo2"
@@ -427,6 +465,7 @@ button:hover {
     border: solid black 4px;
     border-style: solid none;
     font-family:'Press Start 2P';
+    font-size: var(--fight-modal-btn-font-size);
 }
 
 #enemy-turn-btn {
@@ -448,12 +487,12 @@ button:hover {
 }
 
 #player-lost-modal {
-    height: 1080px;
-    width: 1920px;
+    height: var(--modal-height);
+    width: var(--modal-width);
     border: 2px solid;
     display: none;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 360px);
+    grid-template-rows: repeat(3, var(--modal-grid-rows));
     animation-name: fade-in;
     animation-duration: 0.3s;
     animation-fill-mode: forwards;
@@ -467,7 +506,7 @@ button:hover {
 }
 
 #restart-game {
-    font-size: 80px;
+    font-size: var(--breakout-window-btn-font-size);
     grid-column: 2;
     grid-row: 3;
     margin: 5px;
@@ -490,7 +529,7 @@ button:hover {
 }
 
 #restart-game2 {
-    font-size: 80px;
+    font-size: var(--breakout-window-btn-font-size);
     grid-column: 2;
     grid-row: 4;
     margin: 5px;
