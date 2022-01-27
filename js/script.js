@@ -119,6 +119,8 @@ let treatHealth =25
 const mapMusic = new Audio ('audio/map-music-short.mp3')
 const fightMusic = new Audio ('audio/fight-music-1.mp3')
 const hitSoundFx = new Audio ('audio/hit-sound-effect.mp3')
+const winMusic = new Audio ('audio/win-music.mp3')
+const looseMusic = new Audio ('audio/loose-music.mp3')
 
 //////////////////////////////
 // Functions
@@ -169,18 +171,19 @@ const endFight = (result) => {
             fightModalEl.classList.remove('show')
             pauseAudio(fightMusic)
             if (roundsWon  < 3) {
-                nextStory()    
-            } else {
+                nextStory()
                 playAudio(mapMusic)
+            } else {
+                playAudio(winMusic)
             }
-            
         }, timeOutLast);
     } else if (result === 'lost') {
         setTimeout(() => {
             fightModalEl.classList.remove('show')
-            playerLostModal.classList.add('show') 
+            playerLostModal.classList.add('show')
+            pauseAudio(fightMusic)
+            playAudio(looseMusic)
         }, timeOutLast);
-
     }
 }
 
@@ -264,13 +267,15 @@ const newEnemy = (currentEnemy) => {
             cooperAtkTwoEl.style.display ='grid'
             cooperItemsEl.style.display ='grid'
             enemyPhotoEl.appendChild(currentEnemy.domImg)
-            cooper.hp = 100
+            cooper.hp = 1
             cooper.hpBarEl.style.width = `100%`
         }, timeOutLast);
     } else {
         setTimeout(() => {
             fightModalEl.classList.remove('show')
-            playerWonModal.classList.add('show') 
+            playerLostModal.classList.remove('show')
+            playerWonModal.classList.add('show')
+            playAudio(winMusic)
         }, timeOutLast);
     }
 }
