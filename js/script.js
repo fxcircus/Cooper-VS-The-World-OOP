@@ -267,7 +267,7 @@ const newEnemy = (currentEnemy) => {
             cooperAtkTwoEl.style.display ='grid'
             cooperItemsEl.style.display ='grid'
             enemyPhotoEl.appendChild(currentEnemy.domImg)
-            cooper.hp = 1
+            cooper.hp = 100
             cooper.hpBarEl.style.width = `100%`
         }, timeOutLast);
     } else {
