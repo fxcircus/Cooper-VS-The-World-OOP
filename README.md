@@ -9,7 +9,7 @@ A garbage truck, a sprinkler, and fireworks.
 Help Cooper beat his enemies and conquer his fears!
 
 ## Rules
-You play against the computer, as my dog — Cooper.
+You play as my dog Cooper, against the computer.
 
 There are 3 battles in the game.
 A short animation plays between the rounds to show player progression.
@@ -20,20 +20,24 @@ Loosing a battle will result in loosing the game.
 There are dedicated pages for winning or loosing state where you can reload the page. 
 
 ## Combat mechanics
-Each character starts with 100 HP.
+Cooper starts with 100 HP.
+Enemy HP Varies.
 
-Cooper has 2 attacks and 2 items: 
+Cooper has 2 attacks: 
 - Fish breath: does 60 base damage
 - Lick: does 30 base damage
+
+ And 2 items (Item buffs continue to next battles as well):
 - Treat: Adds 25 HP and adds +10 each consecutive use
 - Bone: Adds 100 damage to all attacks 
 
-The player attacks or uses an item first, then the enemy gets a turn,
+Cooper always gets the first turn. He can attack or use an item.
+Then the enemy gets a turn.
 The battle continues until Cooper or his enemies reach 0 hit points.
 
 Each player has an accuracy ratio that determines whether they hit or miss.
 If they miss - the other player gets a turn.
-If they hit - the attack does between 50% to 100% of its' damage points.
+If they hit - the attack does between 50% to 100% of its damage points.
 
 ## Tools used in the making of this project:
 - Coded in JavaScript, HTML, and CSS using Visual Studio Code
