@@ -12,7 +12,7 @@
 
     --slide-in-x: 300px;
 
-    --breakout-window-text-font-size: 1.3em;
+    --breakout-window-text-font-size: 1em;
     --breakout-window-btn-font-size: 1em;
 
     --modal-height: 100vh;
@@ -22,8 +22,8 @@
     --map-height: 100vh;
     --map-width: 100vw;
     --map-template-rows: 1fr;
-    --map-text-bubble-font-size: 1em;
-    --map-attack-btn-font-size: 1em;
+    --map-text-bubble-font-size: 1.3em;
+    --map-attack-btn-font-size: 2em;
     
     --fight-modal-height: 100vh;
     --fight-modal-width: 100vw;
@@ -33,8 +33,13 @@
 
     --cooper-map-above-hight: 90%;
     --cooper-map-above-width: 60%;
-    --cooper-map-side-height: 60%;
-    --cooper-map-side-width: 60%;
+    --cooper-map-side-height: 50%;
+    --cooper-map-side-width: 50%;
+
+    --max-height: 900px;
+    --max-width: 1600px;
+    --min-height: 360px;
+    --min-width: 640px;
 }
 
 @keyframes walk-story-1 {
@@ -211,6 +216,10 @@ button:hover {
 #new-game-modal {
     height: 100vh;
     width: 100vw;
+    max-height: var(--max-height);
+    max-width: var(--max-width);
+    min-height: var(--min-height);
+    min-width: var(--min-width);
     display: none;
     grid-template-columns: 30% 40% 30%;
     grid-template-rows: 30% 30% 10% 30%;
@@ -243,10 +252,13 @@ button:hover {
 }
 
 #game-map-modal{
-    /* border: blue solid 20px; */
     display:none;
     height: var(--map-height);
     width: var(--map-width);
+    max-height: var(--max-height);
+    max-width: var(--max-width);
+    min-height: var(--min-height);
+    min-width: var(--min-width);
     background-image:url("images/cooper_game_map_169.jpg");
     background-size: contain;
     background-repeat: repeat-x;
@@ -293,13 +305,6 @@ button:hover {
 .cooper-walking {
     position: relative;
     grid-area: house1;
-    /* height: 50%;
-    width: 50%; */
-    /* grid-column: 2;
-    grid-row: 3; */
-    /* display: grid;
-    justify-content: center;
-    align-content: center; */
 }
 
 .cooper-walking img {
@@ -309,7 +314,6 @@ button:hover {
 
 .cooper-walking #cooper-above {
     animation-name: fade-out;
-    /* height: 92%; */
     animation-delay: 2.7s;
     animation-duration: 0.05s;
     animation-fill-mode: forwards;
@@ -338,14 +342,8 @@ button:hover {
 }
 
 #cooper-talking {
-    /* border: solid red 2px; */
-    /* height: 90%; */
-    /* width: 30%; */
     opacity: 0;
     grid-area: cooper;
-    /* grid-column: 4 / 5; */
-    /* grid-row: 2 / 5; */
-    /* display: flex; */
     margin-left: 30%;
     animation-name: slide-in-right;
     animation-delay: 8s;
@@ -363,8 +361,6 @@ button:hover {
     grid-area: speech;
     height: 80%;
     width: 80;
-    /* grid-column: 3;
-    grid-row: 1; */
     position: relative;
     z-index: 1;
     display: flex;
@@ -379,20 +375,13 @@ button:hover {
 
 .text {
     position: absolute;
-    /* height: 10%;
-    width: 10%; */
     z-index: 10;
     font-size: var(--map-text-bubble-font-size);
     margin-left: 3%;
-    /* text-align: center; */
-    /* padding-left: 30px; */
-    /* padding-top: 40px; */
-    
 }
 
 .bubble {
     height: 90%;
-    /* width: 70%; */
     opacity: 1;
     position: absolute;
     top: 0;
@@ -404,8 +393,6 @@ button:hover {
     height: 50%;
     width: 80%;
     opacity: 0;
-    /* grid-column: 3;
-    grid-row: 2; */
     font-size: var(--map-attack-btn-font-size);
     border-radius: 8px;
     background-color: white;
@@ -426,10 +413,10 @@ button:hover {
     border-radius: 5%;
     height:90vh;
     width:80vw;
-    /* margin-left: 5%;
-    margin-top: 1%; */
-    /* padding: 30px 60px; */
-    /* grid-template-columns: repeat(2, 1fr); */
+    max-height: var(--max-height);
+    max-width: var(--max-width);
+    min-height: var(--min-height);
+    min-width: var(--min-width);
     grid-template-rows: repeat(3, var(--fight-modal-template-rows));
     grid-template-areas: 
       "photo1 stats1"
@@ -453,8 +440,6 @@ button:hover {
     animation-name: blow-up;
     animation-duration: 1s;
     animation-fill-mode: forwards;
-    /* height: 90%;
-    width: 100%; */
 }
 
 #player-photo {
@@ -466,14 +451,7 @@ button:hover {
     width: 60%;
 }
 
-/* .fight-photos {
-    height: 100%;
-    width: 60%;
-} */
-
 .stats-area {
-    /* grid-area: stats2; */
-    /* padding: 2%; */
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 43% 14% 43%;
@@ -508,7 +486,6 @@ button:hover {
 .action-buttons button {
     flex:1;
     height: 40%;
-    /* margin: 5px; */
     border-radius: 8px;
     background-color: white;
     border: solid black 4px;
