@@ -25,11 +25,14 @@ const enemyTitleEl = document.querySelector('#enemy-title')
 const actionButtonsEl = document.querySelector('#cooper-buttons')
 const restartGameBtnEl = document.querySelector('#restart-game')
 const userWonButtonEl = document.querySelector('#restart-game2')
+const cooperWalkingSideEl = document.querySelector('#cooper-side')
+const cooperWalkingSideRedEl = document.querySelector('#cooper-side-red')
+// const cooperWalkingTopEl = document.querySelector('#cooper-above')
 
 const sprinklerFighterImg = document.createElement('img')
-sprinklerFighterImg.setAttribute('src', 'images/sprinkler-cropped.png')
+sprinklerFighterImg.setAttribute('src', 'images/sprinkler.jpg')
 const fireworksFighterImg = document.createElement('img')
-fireworksFighterImg.setAttribute('src', 'images/fireworks.gif')
+fireworksFighterImg.setAttribute('src', 'images/fireworks.jpg')
 
 const treatButtonEl = document.createElement('button')
 treatButtonEl.classList.add('items-button')
@@ -160,6 +163,8 @@ const nextStory = () => {
             cooperWalkingEl.classList.add(currentStoryAnimation)
             cooperWalkingEl.style.gridColumn = 1
             storiesArr.shift()
+            cooperWalkingSideEl.src = 'images/cooper_side_cropped_right.gif'
+            cooperWalkingSideRedEl.src = 'images/cooper_side_cropped_red_right.gif'
         } else if (storiesArr.length === 1) {
             console.log('im here 3')
             enemyAppearsWarningEl.textContent='FIREWORKS!'
@@ -167,6 +172,9 @@ const nextStory = () => {
             cooperWalkingEl.style.gridRow = 1
             cooperWalkingEl.style.gridColumn = 2
             storiesArr.shift()
+            // cooperWalkingTopEl.src = 'images/cooper_side_cropped_right.gif'
+            cooperWalkingSideEl.src = 'images/cooper_side_cropped.gif'
+            cooperWalkingSideRedEl.src = 'images/cooper_side_cropped_red.gif'
         }
         mapModal.classList.add('show')
     }

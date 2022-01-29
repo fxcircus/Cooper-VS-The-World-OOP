@@ -43,3 +43,7 @@ If they hit - the attack does between 50% to 100% of its damage points.
 - Coded in JavaScript, HTML, and CSS using Visual Studio Code
 - Orignal music created using Ableton Live
 - All Image manipulation and asset creation was done using photopea.com
+
+###  Stock Images used
+- https://www.pexels.com/photo/landscape-water-field-summer-8443729/
+- https://www.pexels.com/photo/low-angle-photo-of-fireworks-949592/
