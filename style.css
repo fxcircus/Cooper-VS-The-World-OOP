@@ -418,6 +418,7 @@ button:hover {
     border: solid black 15px;
     border-style: double;
     border-radius: 5%;
+    grid-template-columns: 50% 50%;
     grid-template-rows: repeat(3, var(--fight-modal-template-rows));
     grid-template-areas: 
       "photo1 stats1"
@@ -483,7 +484,7 @@ button:hover {
 .action-buttons {
       display: flex;
       width: 90%;
-      justify-self: center;
+      /* justify-self: center; */
 }
 
 .action-buttons button {
