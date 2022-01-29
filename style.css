@@ -214,13 +214,13 @@ button:hover {
 }
 
 #new-game-modal {
+    display: none;
     height: 100vh;
     width: 100vw;
     max-height: var(--max-height);
     max-width: var(--max-width);
     min-height: var(--min-height);
     min-width: var(--min-width);
-    display: none;
     grid-template-columns: 30% 40% 30%;
     grid-template-rows: 30% 30% 10% 30%;
 }
@@ -259,14 +259,14 @@ button:hover {
     max-width: var(--max-width);
     min-height: var(--min-height);
     min-width: var(--min-width);
-    background-image:url("images/cooper_game_map_169.jpg");
+    background-image: url("images/cooper_game_map_169.jpg");
     background-size: contain;
     background-repeat: repeat-x;
     grid-template-columns: 33% 33% 33%;
     grid-template-rows: 33% 33% 33%;
     animation-name: fade-in;
     animation-duration: 0.1s;
-    animation-fill-mode:forwards;
+    animation-fill-mode: forwards;
     grid-template-areas: 
     "grass1 grass2 speech"
     "grass4 house1 cooper"
@@ -409,8 +409,8 @@ button:hover {
 #fight-modal {
     display: none;
     font-size: var(--fight-character-text-font-size);
-    height:90vh;
-    width:90vw;
+    height: 90vh;
+    width: 90vw;
     max-height: var(--max-height);
     max-width: var(--max-width);
     min-height: var(--min-height);
@@ -484,7 +484,6 @@ button:hover {
 .action-buttons {
       display: flex;
       width: 90%;
-      /* justify-self: center; */
 }
 
 .action-buttons button {
@@ -517,10 +516,13 @@ button:hover {
 }
 
 #player-lost-modal {
-    height: var(--modal-height);
-    width: var(--modal-width);
-    border: 2px solid;
     display: none;
+    height: 100vh;
+    width: 100vw;
+    max-height: var(--max-height);
+    max-width: var(--max-width);
+    min-height: var(--min-height);
+    min-width: var(--min-width);
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, var(--modal-grid-rows));
     animation-name: fade-in;
@@ -529,17 +531,18 @@ button:hover {
 }
 
 #cooper-lost-photo {
-    border: solid yellow 20px;
+    justify-self: center;
+    border:solid yellow 20px;
     grid-column: 2;
     grid-row: 1;
-    height: 250%;
+    height: 150%;
 }
 
 #restart-game {
     font-size: var(--breakout-window-btn-font-size);
     grid-column: 2;
     grid-row: 3;
-    margin: 5px;
+    height: 50%;
     border-radius: 8px;
     background-color: white;
     border: solid black 4px;
@@ -548,11 +551,15 @@ button:hover {
 }
 
 #player-won-modal {
-    height: 1080px;
-    width: 1920px;
     display: none;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(4, 270px);
+    height: 100vh;
+    width: 100vw;
+    max-height: var(--max-height);
+    max-width: var(--max-width);
+    min-height: var(--min-height);
+    min-width: var(--min-width);
+    grid-template-columns: 30% 40% 30%;
+    grid-template-rows: 30% 30% 10% 30%;
     animation-name: fade-in;
     animation-duration: 0.3s;
     animation-fill-mode: forwards;
@@ -561,8 +568,7 @@ button:hover {
 #restart-game2 {
     font-size: var(--breakout-window-btn-font-size);
     grid-column: 2;
-    grid-row: 4;
-    margin: 5px;
+    grid-row: 3;
     border-radius: 8px;
     background-color: white;
     border: solid black 4px;
@@ -571,15 +577,18 @@ button:hover {
 }
 
 #cooper-won-photo {
-    border:solid yellow 20px;
+    justify-self: center;
+    border: solid yellow 20px;
     grid-column: 2;
     grid-row: 2;
-    height: 250%;
+    height: 110%;
 }
 
 #win-text {
     grid-column: 2;
-    font-size: 70px;
+    align-self: center;
+    justify-self: center;
+    font-size: 2em;
 }
 
 .items-button {
