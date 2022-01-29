@@ -408,15 +408,15 @@ button:hover {
 #fight-modal {
     display: none;
     font-size: var(--fight-character-text-font-size);
-    border: solid black 25px;
-    border-style: double;
-    border-radius: 5%;
     height:90vh;
-    width:80vw;
+    width:90vw;
     max-height: var(--max-height);
     max-width: var(--max-width);
     min-height: var(--min-height);
     min-width: var(--min-width);
+    border: solid black 15px;
+    border-style: double;
+    border-radius: 5%;
     grid-template-rows: repeat(3, var(--fight-modal-template-rows));
     grid-template-areas: 
       "photo1 stats1"
