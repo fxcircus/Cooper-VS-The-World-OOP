@@ -483,6 +483,7 @@ button:hover {
 .action-buttons {
       display: flex;
       width: 90%;
+      justify-self: center;
 }
 
 .action-buttons button {
