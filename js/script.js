@@ -31,8 +31,11 @@ const cooperWalkingSideRedEl = document.querySelector('#cooper-side-red')
 
 const sprinklerFighterImg = document.createElement('img')
 sprinklerFighterImg.setAttribute('src', 'images/sprinkler.jpg')
+sprinklerFighterImg.classList.add('fight-photos')
+
 const fireworksFighterImg = document.createElement('img')
 fireworksFighterImg.setAttribute('src', 'images/fireworks.jpg')
+fireworksFighterImg.classList.add('fight-photos')
 
 const treatButtonEl = document.createElement('button')
 treatButtonEl.classList.add('items-button')
@@ -341,5 +344,6 @@ newEnemy (currentEnemy)
 // playerLostModal.style.display = 'grid' // Quick Access...
 // playerWonModal.style.display = 'grid' // Quick Access...
 // newGameModalEl.style.display = 'grid' // Quick Access...
+// mapModal.classList.add('show')
 
 newGameModalEl.classList.add('show') // show first screen
