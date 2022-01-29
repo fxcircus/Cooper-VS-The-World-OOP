@@ -242,7 +242,7 @@ const switchFightButtons = (player) => {
 
 // Print Timed-Out Message To Screen:
 const printMessage = (time, message) => {
-    textAreaEl.textContent =''
+    textAreaEl.innerHTML ='<br>'
     const newText = document.createTextNode(message)
     setTimeout(() => {
         textAreaEl.appendChild(newText)
@@ -344,6 +344,6 @@ newEnemy (currentEnemy)
 // playerLostModal.style.display = 'grid' // Quick Access...
 // playerWonModal.style.display = 'grid' // Quick Access...
 // newGameModalEl.style.display = 'grid' // Quick Access...
-// mapModal.classList.add('show')
+// mapModal.classList.add('show') // Only Show Story Map
 
-newGameModalEl.classList.add('show') // show first screen
+newGameModalEl.classList.add('show') // Show First Screen

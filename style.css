@@ -381,8 +381,9 @@ button:hover {
 }
 
 .bubble {
+    margin-right: 20px;
     height: 90%;
-    opacity: 1;
+    opacity: 0.8;
     position: absolute;
     top: 0;
     z-index: 2;
@@ -481,6 +482,7 @@ button:hover {
 
 .action-buttons {
       display: flex;
+      width: 90%;
 }
 
 .action-buttons button {
@@ -501,7 +503,7 @@ button:hover {
 
 #text-area {
     grid-area: text;
-    border: solid grey 20px;
+    border: solid grey 15px;
     border-radius: 2%;
     background: orange;
 }
