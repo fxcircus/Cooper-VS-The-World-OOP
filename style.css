@@ -205,6 +205,23 @@
     50% { border-color: black; }
 }  
 
+@keyframes stretch {
+    0% {
+        transform: scaleX(1);
+        transform: scaleY(1);
+    }
+    50% {
+        color: orange;
+        transform: scaleX(-0.9);
+        transform: scaleY(0.8);
+    }
+    100% {
+        color: red;
+        transform: scaleX(1);
+        transform: scaleY(1);
+    }
+}
+
 body {
     font-family: 'Press Start 2P';
 }
@@ -222,20 +239,41 @@ button:hover {
     min-height: var(--min-height);
     min-width: var(--min-width);
     grid-template-columns: 30% 40% 30%;
-    grid-template-rows: 30% 30% 10% 30%;
+    grid-template-rows: 40% 30% 30% 10%;
 }
 
 #cooper-keyboard-photo {
     justify-self: center;
     border: solid yellow 20px;
     grid-column: 2;
-    grid-row: 1;
+    grid-row: 2;
     height: 100%;
+}
+
+#opening-title {
+    grid-column: 2;
+    grid-row: 1;
+    align-self: center;
+    justify-self: center;
+    text-align: center;
+}
+
+.main-title {
+    color: black;
+    font-size: 3em;
+}
+
+#vs-title {
+    color: red;
+    font-size: 4em;
+    animation-name: stretch;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
 }
 
 #new-game-text {
     grid-column: 2;
-    grid-row: 2;
+    grid-row: 3;
     align-self: center;
     font-size: var(--breakout-window-text-font-size);
 }
@@ -243,7 +281,7 @@ button:hover {
 .new-game-button {
     font-size: var(--breakout-window-btn-font-size);
     grid-column: 2;
-    grid-row: 3;
+    grid-row: 4;
     border-radius: 8px;
     background-color: white;
     border: solid black 4px;
