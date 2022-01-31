@@ -27,7 +27,7 @@ Cooper has 2 attacks:
 - Fish breath: does 60 base damage
 - Lick: does 30 base damage
 
- And 2 items (Item buffs continue to next battles as well):
+ And 2 items (Item buffs carry on to future battles!):
 - Treat: Adds 25 HP and adds +10 each consecutive use
 - Bone: Adds 100 damage to all attacks 
 

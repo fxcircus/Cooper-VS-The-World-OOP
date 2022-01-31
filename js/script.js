@@ -27,7 +27,6 @@ const restartGameBtnEl = document.querySelector('#restart-game')
 const userWonButtonEl = document.querySelector('#restart-game2')
 const cooperWalkingSideEl = document.querySelector('#cooper-side')
 const cooperWalkingSideRedEl = document.querySelector('#cooper-side-red')
-// const cooperWalkingTopEl = document.querySelector('#cooper-above')
 
 const sprinklerFighterImg = document.createElement('img')
 sprinklerFighterImg.setAttribute('src', 'images/sprinkler.jpg')
@@ -175,7 +174,6 @@ const nextStory = () => {
             cooperWalkingEl.style.gridRow = 1
             cooperWalkingEl.style.gridColumn = 2
             storiesArr.shift()
-            // cooperWalkingTopEl.src = 'images/cooper_side_cropped_right.gif'
             cooperWalkingSideEl.src = 'images/cooper_side_cropped.gif'
             cooperWalkingSideRedEl.src = 'images/cooper_side_cropped_red.gif'
         }
